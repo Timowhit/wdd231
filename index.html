@@ -5,15 +5,15 @@
     <!-- img max size is 125kB -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta description="This is the home page of the website.">
-    <meta author="Timothy Whitehead">
+    <meta name="description" content="This is the home page of the website.">
+    <meta name="author" content="Timothy Whitehead">
     <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles/index.css">
     <script src="scripts/index.js" defer></script>
 </head>
 <body>
     <header>
-        <!-- header needs logo, name, and hamburger menu -->
         <img class="logo" src="images/index_rocket.svg" alt="Logo"> Timothy Whitehead
         <span class="hamburger-menu">&#9776;</span>
     </header>
@@ -26,37 +26,41 @@
     </nav>
     <main>
         <h1>Home</h1>
-        <section>
+        <section class="about">
             <h2>About Me</h2>
             <p>Timothy Whitehead is a dedicated student at BYU-Idaho, pursuing a degree in Computer Science. He is passionate about web development and enjoys creating interactive experiences for users.</p>
         </section>
-        <section>
+        <section class="photo">
             <h2>Student Photo</h2>
             <img class="student_photo" src="images/student_photo.jpg" alt="Student Photo">
         </section>
-        <section>
+        <section class="courses">
             <h2>Web Certificate Courses</h2>
-            
-            <button class="ALL">ALL</button>
-            <button class="WDD">WDD</button>
-            <button class="CSE">CSE</button>
-            <span>
-                <p class="ALL WDD">WDD130</p>
-                <p class="ALL WDD">WDD131</p>
-                <p class="ALL WDD">WDD231</p>
-                <p class="ALL CSE">CSE110</p>
-                <p class="ALL CSE">CSE111</p>
-                <p class="ALL CSE">CSE210</p>
-            </span>
-            
+            <div class="filter-buttons">
+                <button class="active" data-filter="ALL">All</button>
+                <button data-filter="CSE">CSE</button>
+                <button data-filter="WDD">WDD</button>
+            </div>
+            <ul class="course-list">
+                <li data-category="WDD" data-credits="2">WDD 130</li>
+                <li data-category="WDD" data-credits="2">WDD 131</li>
+                <li data-category="WDD" data-credits="2">WDD 231</li>
+                <li data-category="CSE" data-credits="2">CSE 110</li>
+                <li data-category="CSE" data-credits="2">CSE 111</li>
+                <li data-category="CSE" data-credits="2">CSE 210</li>
+            </ul>
+            <p class="credits-total">The total credits for courses listed above is <span id="credit-count">12</span></p>
         </section>
     </main>
     <footer>
-        <ul>
-            <span id="linkedin"><a href="https://www.linkedin.com/t-whitehead/">Linkedin</a></span>
-            <span id="github"><a href="https://www.github.com/timowhit/">Github</a></span>
-            <span id="careers"><a href="https://www.timowhit.github.com/Careers/">Highlights</a></span>
+        <ul class="social-links">
+            <li><a href="https://www.linkedin.com/t-whitehead/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.github.com/timowhit/" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://www.timowhit.github.com/Careers/" aria-label="Highlights"><img src="images/index_rocket.svg" alt="Highlights" class="social-icon"></a></li>
         </ul>
-        <span id="currentyear">&copy; Timothy Whitehead</span>
+        <p id="currentyear">&copy; Timothy Whitehead</p>
+        <p class="location">Timothy Whitehead • Utah, USA</p>
+        <p class="last-modified">Last Modification: <span id="lastmodified"></span></p>
     </footer>
+</body>
 </html>
