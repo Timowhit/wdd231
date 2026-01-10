@@ -1,0 +1,92 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.logo {
+    max-height: 50px;
+    margin-bottom: -10px;
+}
+/* Button Styles */
+button {
+    background-color: #35424a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #121212;
+}
+
+span p {
+    display: none;
+}
+span.active p {
+    display: inline;
+}
+
+/* Responsive Styles */
+@media (device-width >= 600px) {
+    /* Header Styles */
+    header {
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        font-size: larger;
+        padding: 10px 10px;
+        margin-bottom: 5px;
+    }
+    .hamburger-menu {
+        display: none;
+    }
+
+    nav ul {
+        background: #35424a;
+        list-style: none;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+    nav ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    nav ul li a.active {
+        background-color: #121212;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1/1;
+    }
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+}
+
