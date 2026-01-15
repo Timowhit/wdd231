@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Gilbert Chamber of Commerce - Explore membership benefits and apply to become a member today.">
+  
+  <title>Join the Chamber | Gilbert Chamber of Commerce</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <span class="logo-title">Gilbert</span>
+          <span class="logo-subtitle">Chamber of Commerce</span>
+        </div>
+      </a>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="discover.html" class="nav-link">Discover</a></li>
+          <li><a href="directory.html" class="nav-link">Directory</a></li>
+          <li><a href="join.html" class="nav-link active">Join</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <p class="text-accent">Grow With Us</p>
+        <h1>Join the Chamber</h1>
+        <p>Become part of Gilbert's thriving business community and unlock resources, connections, and opportunities to help your business succeed.</p>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <p class="text-accent">Why Join?</p>
+          <h2>Membership Benefits</h2>
+        </div>
+        
+        <div class="cards-grid">
+          <div class="card" style="padding: var(--space-xl);">
+            <div style="width: 60px; height: 60px; background: var(--color-primary-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+              <svg width="28" height="28" fill="none" stroke="var(--color-primary)" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 style="margin-bottom: var(--space-sm);">Networking</h3>
+            <p style="color: var(--color-text-muted);">Connect with 500+ local businesses at exclusive events, workshops, and luncheons designed to foster meaningful relationships.</p>
+          </div>
+          
+          <div class="card" style="padding: var(--space-xl);">
+            <div style="width: 60px; height: 60px; background: var(--color-secondary-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+              <svg width="28" height="28" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 20V10M18 20V4M6 20v-4"/>
+              </svg>
+            </div>
+            <h3 style="margin-bottom: var(--space-sm);">Visibility</h3>
+            <p style="color: var(--color-text-muted);">Get featured in our business directory, social media, newsletter, and promotional materials reaching thousands of potential customers.</p>
+          </div>
+          
+          <div class="card" style="padding: var(--space-xl);">
+            <div style="width: 60px; height: 60px; background: var(--color-accent-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+              <svg width="28" height="28" fill="none" stroke="var(--color-accent)" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <h3 style="margin-bottom: var(--space-sm);">Resources</h3>
+            <p style="color: var(--color-text-muted);">Access business workshops, marketing tools, industry reports, and educational programs to help your business grow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Tiers -->
+    <section class="section" style="background: var(--color-bg-alt);">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <p class="text-accent">Choose Your Level</p>
+          <h2>Membership Tiers</h2>
+        </div>
+        
+        <div class="tiers-grid">
+          <!-- Nonprofit Tier -->
+          <div class="tier-card">
+            <div class="tier-header">
+              <span class="tier-name">Nonprofit</span>
+              <div class="tier-price">$99<span>/year</span></div>
+            </div>
+            <ul class="tier-features">
+              <li>Business directory listing</li>
+              <li>Monthly newsletter inclusion</li>
+              <li>Access to networking events</li>
+              <li>Member-only discounts</li>
+              <li>Annual business workshop</li>
+            </ul>
+            <button class="btn btn-outline select-tier" data-tier="nonprofit">Select Nonprofit</button>
+          </div>
+          
+          <!-- Silver Tier -->
+          <div class="tier-card">
+            <div class="tier-header">
+              <span class="tier-name">Silver</span>
+              <div class="tier-price">$299<span>/year</span></div>
+            </div>
+            <ul class="tier-features">
+              <li>Everything in Nonprofit, plus:</li>
+              <li>Enhanced directory listing with logo</li>
+              <li>Quarterly newsletter feature</li>
+              <li>Social media mentions (4x/year)</li>
+              <li>Priority event registration</li>
+              <li>Business training workshops</li>
+              <li>Ribbon cutting ceremony</li>
+            </ul>
+            <button class="btn btn-secondary select-tier" data-tier="silver">Select Silver</button>
+          </div>
+          
+          <!-- Gold Tier (Featured) -->
+          <div class="tier-card featured">
+            <div class="tier-header">
+              <span class="tier-name">Gold</span>
+              <div class="tier-price">$599<span>/year</span></div>
+            </div>
+            <ul class="tier-features">
+              <li>Everything in Silver, plus:</li>
+              <li>Premium directory placement</li>
+              <li>Monthly newsletter spotlight</li>
+              <li>Weekly social media features</li>
+              <li>Complimentary event table (2x/year)</li>
+              <li>Speaking opportunities at events</li>
+              <li>Website banner advertising</li>
+              <li>VIP luncheon invitations</li>
+              <li>Annual sponsorship recognition</li>
+            </ul>
+            <button class="btn btn-gold select-tier" data-tier="gold">Select Gold</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section" id="application-form">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <p class="text-accent">Get Started</p>
+          <h2>Membership Application</h2>
+        </div>
+        
+        <form id="membership-form" class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl);" novalidate>
+          <!-- Selected Tier Display -->
+          <div id="selected-tier-display" style="background: var(--color-bg-alt); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-xl); display: none;">
+            <p style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
+              <span>Selected Membership: <strong id="selected-tier-name"></strong></span>
+              <span id="selected-tier-price" style="font-weight: 600; color: var(--color-primary);"></span>
+            </p>
+          </div>
+          
+          <!-- Business Information -->
+          <fieldset style="border: none; margin-bottom: var(--space-xl);">
+            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Business Information</legend>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-name" class="form-label required">Business Name</label>
+                <input type="text" id="business-name" name="businessName" class="form-input" required>
+                <span class="form-error">Please enter your business name</span>
+              </div>
+              
+              <div class="form-group">
+                <label for="business-category" class="form-label required">Business Category</label>
+                <select id="business-category" name="businessCategory" class="form-select" required>
+                  <option value="">Select a category</option>
+                  <option value="Automotive">Automotive</option>
+                  <option value="Financial Services">Financial Services</option>
+                  <option value="Food & Beverage">Food & Beverage</option>
+                  <option value="Health & Wellness">Health & Wellness</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Home & Garden">Home & Garden</option>
+                  <option value="Nonprofit">Nonprofit</option>
+                  <option value="Professional Services">Professional Services</option>
+                  <option value="Real Estate">Real Estate</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Transportation">Transportation</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="form-error">Please select a category</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="business-description" class="form-label required">Business Description</label>
+              <textarea id="business-description" name="businessDescription" class="form-textarea" placeholder="Tell us about your business (max 200 characters)" maxlength="200" required></textarea>
+              <span class="form-error">Please provide a brief description</span>
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);" id="char-count">0/200 characters</span>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-address" class="form-label required">Business Address</label>
+                <input type="text" id="business-address" name="businessAddress" class="form-input" required>
+                <span class="form-error">Please enter your business address</span>
+              </div>
+              
+              <div class="form-group">
+                <label for="business-phone" class="form-label required">Phone Number</label>
+                <input type="tel" id="business-phone" name="businessPhone" class="form-input" placeholder="(480) 555-0123" required>
+                <span class="form-error">Please enter a valid phone number</span>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-website" class="form-label">Website</label>
+                <input type="url" id="business-website" name="businessWebsite" class="form-input" placeholder="https://yourwebsite.com">
+              </div>
+              
+              <div class="form-group">
+                <label for="year-established" class="form-label">Year Established</label>
+                <input type="number" id="year-established" name="yearEstablished" class="form-input" min="1800" max="2024" placeholder="2020">
+              </div>
+            </div>
+          </fieldset>
+          
+          <!-- Contact Information -->
+          <fieldset style="border: none; margin-bottom: var(--space-xl);">
+            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Contact Person</legend>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-first" class="form-label required">First Name</label>
+                <input type="text" id="contact-first" name="contactFirst" class="form-input" required>
+                <span class="form-error">Please enter your first name</span>
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-last" class="form-label required">Last Name</label>
+                <input type="text" id="contact-last" name="contactLast" class="form-input" required>
+                <span class="form-error">Please enter your last name</span>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-title" class="form-label">Title/Position</label>
+                <input type="text" id="contact-title" name="contactTitle" class="form-input" placeholder="Owner, Manager, etc.">
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-email" class="form-label required">Email Address</label>
+                <input type="email" id="contact-email" name="contactEmail" class="form-input" required>
+                <span class="form-error">Please enter a valid email address</span>
+              </div>
+            </div>
+          </fieldset>
+          
+          <!-- Membership Level -->
+          <fieldset style="border: none; margin-bottom: var(--space-xl);">
+            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Membership Level</legend>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <label class="form-check">
+                <input type="radio" name="membershipLevel" value="nonprofit" required>
+                <span class="form-check-label">
+                  <strong>Nonprofit</strong> - $99/year
+                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Basic directory listing and networking access</span>
+                </span>
+              </label>
+              
+              <label class="form-check">
+                <input type="radio" name="membershipLevel" value="silver">
+                <span class="form-check-label">
+                  <strong>Silver</strong> - $299/year
+                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Enhanced visibility and marketing support</span>
+                </span>
+              </label>
+              
+              <label class="form-check">
+                <input type="radio" name="membershipLevel" value="gold">
+                <span class="form-check-label">
+                  <strong>Gold</strong> - $599/year
+                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Premium placement and exclusive benefits</span>
+                </span>
+              </label>
+            </div>
+            <span class="form-error" id="membership-error" style="display: none;">Please select a membership level</span>
+          </fieldset>
+          
+          <!-- Terms and Submit -->
+          <div class="form-group">
+            <label class="form-check">
+              <input type="checkbox" id="terms" name="terms" required>
+              <span class="form-check-label">I agree to the <a href="#" style="text-decoration: underline;">Terms of Membership</a> and <a href="#" style="text-decoration: underline;">Privacy Policy</a></span>
+            </label>
+            <span class="form-error" id="terms-error" style="display: none;">You must agree to the terms</span>
+          </div>
+          
+          <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); flex-wrap: wrap;">
+            <button type="submit" class="btn btn-primary" style="flex: 1; min-width: 200px;">Submit Application</button>
+            <button type="reset" class="btn btn-outline" style="flex: 1; min-width: 200px;">Reset Form</button>
+          </div>
+        </form>
+        
+        <!-- Success Message (hidden by default) -->
+        <div id="form-success" class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-2xl); text-align: center; display: none;">
+          <div style="width: 80px; height: 80px; background: var(--color-secondary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg);">
+            <svg width="40" height="40" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+          </div>
+          <h2>Application Submitted!</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">Thank you for your interest in joining the Gilbert Chamber of Commerce. We'll review your application and contact you within 2-3 business days.</p>
+          <a href="index.html" class="btn btn-primary">Return to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: var(--color-bg-alt);">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <p class="text-accent">Questions?</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
+            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">How long does the membership last?</summary>
+            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">All membership levels are annual subscriptions. Your membership begins on the date your application is approved and runs for 12 months. We'll send renewal reminders 30 days before expiration.</p>
+          </details>
+          
+          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
+            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">Can I upgrade my membership later?</summary>
+            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">Absolutely! You can upgrade your membership at any time. When you upgrade, you'll pay the prorated difference for the remainder of your membership term and immediately receive all the benefits of your new level.</p>
+          </details>
+          
+          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
+            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">What payment methods do you accept?</summary>
+            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">We accept all major credit cards, checks, and ACH bank transfers. For Gold members, we also offer quarterly payment plans at no additional cost.</p>
+          </details>
+          
+          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
+            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">Do I need to have a physical location in Gilbert?</summary>
+            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">While we primarily serve Gilbert-based businesses, we welcome businesses from the greater East Valley area that serve Gilbert residents. Home-based businesses are also welcome!</p>
+          </details>
+          
+          <details class="card" style="padding: var(--space-lg);">
+            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">How do I get my business featured in the spotlight?</summary>
+            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">Silver and Gold members are automatically considered for our member spotlight features. Gold members receive guaranteed monthly spotlights, while Silver members are featured quarterly. Contact our team to schedule your feature!</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+              <div class="logo-icon">G</div>
+              <div class="logo-text">
+                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-subtitle">Chamber of Commerce</span>
+              </div>
+            </div>
+            <p>Supporting local businesses and fostering economic growth in Gilbert, Arizona since 1952.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="discover.html">Discover Gilbert</a></li>
+              <li><a href="directory.html">Business Directory</a></li>
+              <li><a href="join.html">Membership</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Events Calendar</a></li>
+              <li><a href="#">Member Benefits</a></li>
+              <li><a href="#">News & Updates</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
+            <p style="margin-top: var(--space-sm);">
+              <a href="tel:+14809262626">(480) 926-2626</a><br>
+              <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year">2024</span> Gilbert Chamber of Commerce. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/join.js"></script>
+</body>
+</html>

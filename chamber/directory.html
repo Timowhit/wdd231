@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gilbert Chamber of Commerce Business Directory - Find local businesses, services, and organizations in Gilbert, Arizona.">
+  
+  <title>Business Directory | Gilbert Chamber of Commerce</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+  
+  <style>
+    /* Directory-specific styles */
+    .directory-controls {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .search-box {
+      position: relative;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: var(--space-md) var(--space-md) var(--space-md) 48px;
+      font-size: 1rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      transition: all var(--transition-fast);
+    }
+    
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-light);
+    }
+    
+    .search-box svg {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+    }
+    
+    .view-toggle {
+      display: flex;
+      gap: var(--space-xs);
+      background: var(--color-bg-alt);
+      padding: var(--space-xs);
+      border-radius: var(--radius-md);
+    }
+    
+    .view-toggle button {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+      color: var(--color-text-muted);
+    }
+    
+    .view-toggle button.active {
+      background: var(--color-surface);
+      color: var(--color-text);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .results-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .results-count {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .sort-select {
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-surface);
+      font-size: 0.9rem;
+    }
+    
+    /* List view styles */
+    .business-grid.list-view {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    
+    .business-grid.list-view .business-card {
+      flex-direction: row;
+      align-items: stretch;
+    }
+    
+    .business-grid.list-view .card-header {
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+      min-width: 200px;
+    }
+    
+    .business-grid.list-view .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: var(--space-3xl);
+      color: var(--color-text-muted);
+    }
+    
+    .no-results h3 {
+      margin-bottom: var(--space-sm);
+    }
+    
+    @media (min-width: 768px) {
+      .directory-controls {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .search-box {
+        flex: 1;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="timowhit.github.io/wdd231/index.html" class="logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <span class="logo-title">Gilbert</span>
+          <span class="logo-subtitle">Chamber of Commerce</span>
+        </div>
+      </a>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="timowhit.github.io/wdd231/index.html" class="nav-link">Home</a></li>
+          <li><a href="discover.html" class="nav-link">Discover</a></li>
+          <li><a href="directory.html" class="nav-link active">Directory</a></li>
+          <li><a href="join.html" class="nav-link">Join</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <p class="text-accent">Find Local Businesses</p>
+        <h1>Business Directory</h1>
+        <p>Discover trusted local businesses, services, and organizations that make Gilbert thrive.</p>
+      </div>
+    </section>
+
+    <!-- Directory Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Search and Controls -->
+        <div class="directory-controls">
+          <div class="search-box">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search businesses..." aria-label="Search businesses">
+          </div>
+          
+          <div class="view-toggle">
+            <button id="grid-view-btn" class="active" aria-label="Grid view">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+              </svg>
+            </button>
+            <button id="list-view-btn" aria-label="List view">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <span class="filter-label">Category:</span>
+            <div class="filter-buttons" id="category-filters">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <span class="filter-label">Membership:</span>
+            <div class="filter-buttons" id="membership-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="gold">Gold</button>
+              <button class="filter-btn" data-filter="silver">Silver</button>
+              <button class="filter-btn" data-filter="nonprofit">Nonprofit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info">
+          <span class="results-count" id="results-count">Loading businesses...</span>
+          <select class="sort-select" id="sort-select" aria-label="Sort businesses">
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+
+        <!-- Business Grid -->
+        <div class="business-grid" id="business-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+        
+        <!-- No Results Message -->
+        <div class="no-results" id="no-results" style="display: none;">
+          <h3>No businesses found</h3>
+          <p>Try adjusting your search or filters to find what you're looking for.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Get Your Business Listed</h2>
+          <p>Join the Gilbert Chamber and get your business in front of thousands of potential customers.</p>
+          <a href="join.html" class="btn btn-gold">Become a Member</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+              <div class="logo-icon">G</div>
+              <div class="logo-text">
+                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-subtitle">Chamber of Commerce</span>
+              </div>
+            </div>
+            <p>Supporting local businesses and fostering economic growth in Gilbert, Arizona since 1952.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="discover.html">Discover Gilbert</a></li>
+              <li><a href="directory.html">Business Directory</a></li>
+              <li><a href="join.html">Membership</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Events Calendar</a></li>
+              <li><a href="#">Member Benefits</a></li>
+              <li><a href="#">News & Updates</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
+            <p style="margin-top: var(--space-sm);">
+              <a href="tel:+14809262626">(480) 926-2626</a><br>
+              <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year">2024</span> Gilbert Chamber of Commerce. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/directory.js"></script>
+</body>
+</html>
