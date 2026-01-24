@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gilbert Chamber of Commerce - Supporting local businesses and fostering economic growth in Gilbert, Arizona since 1952.">
+  <meta name="author" content="Timothy Whitehead">
+  <title>Gilbert Chamber of Commerce | Growing Together</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <span class="logo-title">Gilbert</span>
+          <span class="logo-subtitle">Chamber of Commerce</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="discover.html" class="nav-link">Discover</a></li>
+          <li><a href="directory.html" class="nav-link">Directory</a></li>
+          <li><a href="join.html" class="nav-link">Join</a></li>
+        </ul>
+      </nav>
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-content fade-in">
+            <p class="hero-tagline">Welcome to Gilbert, Arizona</p>
+            <h1>Where Heritage Meets Innovation</h1>
+            <p>From the Hay Shipping Capital of the World to one of America's fastest-growing communities, Gilbert's business community thrives on collaboration, innovation, and hometown values.</p>
+            <div class="hero-buttons">
+              <a href="join.html" class="btn btn-primary">Become a Member</a>
+              <a href="directory.html" class="btn btn-outline">Explore Directory</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="https://picsum.photos/seed/gilbert-hero/800/600" alt="Downtown Gilbert" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="home-main-grid">
+          <div class="main-content">
+            <div class="content-block">
+              <div class="section-header">
+                <p class="text-accent">Mark Your Calendar</p>
+                <h2>Upcoming Events</h2>
+              </div>
+              <div class="events-grid">
+                <article class="event-item">
+                  <div class="event-date"><span class="month">Feb</span><span class="day">15</span></div>
+                  <div class="event-info"><h4>Business Networking Breakfast</h4><p>Connect with fellow business owners over coffee at Heritage District.</p><span class="event-time">7:30 AM - 9:00 AM</span></div>
+                </article>
+                <article class="event-item">
+                  <div class="event-date"><span class="month">Feb</span><span class="day">22</span></div>
+                  <div class="event-info"><h4>Small Business Workshop: Digital Marketing</h4><p>Learn strategies to grow your online presence.</p><span class="event-time">10:00 AM - 12:00 PM</span></div>
+                </article>
+                <article class="event-item">
+                  <div class="event-date"><span class="month">Mar</span><span class="day">8</span></div>
+                  <div class="event-info"><h4>Annual Business Excellence Awards</h4><p>Celebrating Gilbert's outstanding businesses.</p><span class="event-time">6:00 PM - 9:00 PM</span></div>
+                </article>
+                <article class="event-item">
+                  <div class="event-date"><span class="month">Mar</span><span class="day">15</span></div>
+                  <div class="event-info"><h4>Gilbert Farmers Market - Spring Opening</h4><p>Celebrate local agriculture at our expanded spring market.</p><span class="event-time">8:00 AM - 12:00 PM</span></div>
+                </article>
+              </div>
+            </div>
+            <div class="content-block" style="margin-top: var(--space-2xl);">
+              <div class="section-header">
+                <p class="text-accent">Member Highlights</p>
+                <h2>Business Spotlights</h2>
+              </div>
+              <div class="spotlight-grid" id="spotlight-container"></div>
+            </div>
+          </div>
+          <aside class="sidebar">
+            <div class="weather-widget">
+              <div class="weather-header">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <h3>Gilbert Weather</h3>
+              </div>
+              <div class="weather-current">
+                <span class="weather-temp">72°F</span>
+                <div><p class="weather-desc">Sunny</p><p style="font-size:0.85rem;opacity:0.8;">High: 78° | Low: 54°</p></div>
+              </div>
+              <div class="weather-details"><span>Humidity: 25%</span><span>Wind: 8 mph</span></div>
+              <div class="weather-forecast">
+                <div class="forecast-day"><span class="day">Thu</span><span class="temp">75°</span></div>
+                <div class="forecast-day"><span class="day">Fri</span><span class="temp">79°</span></div>
+                <div class="forecast-day"><span class="day">Sat</span><span class="temp">76°</span></div>
+              </div>
+            </div>
+            <div class="stats-sidebar" style="margin-top:var(--space-xl);">
+              <h3 style="margin-bottom:var(--space-md);">Gilbert at a Glance</h3>
+              <div class="stats-grid" style="grid-template-columns:repeat(2,1fr);">
+                <div class="stat-item"><span class="stat-number">275K+</span><span class="stat-label">Residents</span></div>
+                <div class="stat-item"><span class="stat-number">500+</span><span class="stat-label">Members</span></div>
+                <div class="stat-item"><span class="stat-number">#5</span><span class="stat-label">Safest City</span></div>
+                <div class="stat-item"><span class="stat-number">72</span><span class="stat-label">Years Strong</span></div>
+              </div>
+            </div>
+            <div class="cta-section" style="margin-top:var(--space-xl);">
+              <h3 style="color:white;font-size:1.25rem;">Ready to Grow?</h3>
+              <p style="font-size:0.9rem;">Join 500+ businesses shaping Gilbert's future.</p>
+              <a href="join.html" class="btn btn-gold">Join Today</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Join Gilbert's Business Community</h2>
+          <p>Connect with over 500 local businesses, access exclusive resources, and help shape the future of our thriving community.</p>
+          <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+            <a href="join.html" class="btn btn-gold">Explore Membership</a>
+            <a href="directory.html" class="btn" style="background:rgba(255,255,255,0.2);color:white;">Browse Directory</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="margin-bottom:var(--space-md);">
+              <div class="logo-icon">G</div>
+              <div class="logo-text"><span class="logo-title" style="color:var(--color-bg);">Gilbert</span><span class="logo-subtitle">Chamber of Commerce</span></div>
+            </div>
+            <p>Supporting local businesses and fostering economic growth in Gilbert, Arizona since 1952.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="discover.html">Discover Gilbert</a></li>
+              <li><a href="directory.html">Business Directory</a></li>
+              <li><a href="join.html">Membership</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Events Calendar</a></li>
+              <li><a href="#">Member Benefits</a></li>
+              <li><a href="#">News & Updates</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
+            <p style="margin-top:var(--space-sm);"><a href="tel:+14809262626">(480) 926-2626</a><br><a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><p>&copy; <span id="current-year">2024</span> Gilbert Chamber of Commerce. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+  <script>
+    const SPOTLIGHT_FALLBACK = [
+      {"id":1,"name":"Gilbert Family Dentistry","description":"Comprehensive dental care for the whole family, from routine cleanings to cosmetic procedures.","image":"https://picsum.photos/seed/dental/400/300","website":"#"},
+      {"id":3,"name":"Agritopia Farm Stand","description":"Fresh, locally grown produce and artisan goods from Gilbert's premier urban farm community.","image":"https://picsum.photos/seed/farm/400/300","website":"#"},
+      {"id":4,"name":"Heritage Tech Solutions","description":"IT consulting and managed services for small to medium businesses in the East Valley.","image":"https://picsum.photos/seed/tech/400/300","website":"#"},
+      {"id":8,"name":"Cactus Creative Agency","description":"Full-service marketing and design agency helping Arizona businesses grow.","image":"https://picsum.photos/seed/creative/400/300","website":"#"},
+      {"id":14,"name":"East Valley Pediatrics","description":"Compassionate pediatric care from newborns through adolescence.","image":"https://picsum.photos/seed/pediatrics/400/300","website":"#"},
+      {"id":15,"name":"Arizona Solar Pros","description":"Residential and commercial solar installation with financing options.","image":"https://picsum.photos/seed/solar/400/300","website":"#"},
+      {"id":18,"name":"Heritage District Realty","description":"Local experts in Gilbert residential and commercial real estate.","image":"https://picsum.photos/seed/realty/400/300","website":"#"}
+    ];
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('spotlight-container');
+      if (!container) return;
+      let goldMembers;
+      try {
+        const response = await fetch('data/members.json');
+        if (!response.ok) throw new Error('Fetch failed');
+        const data = await response.json();
+        goldMembers = data.members.filter(m => m.membershipLevel === 'gold');
+      } catch (error) {
+        console.warn('Using fallback data:', error.message);
+        goldMembers = SPOTLIGHT_FALLBACK;
+      }
+      const spotlights = goldMembers.sort(() => Math.random() - 0.5).slice(0, 3);
+      container.innerHTML = spotlights.map(member => 
+        '<article class="card business-card">' +
+        '<img src="' + member.image + '" alt="' + member.name + '" class="card-image" loading="lazy">' +
+        '<div class="card-content">' +
+        '<span class="membership-badge gold">Gold Member</span>' +
+        '<h3 class="card-title">' + member.name + '</h3>' +
+        '<p class="card-text">' + member.description + '</p>' +
+        '<a href="' + member.website + '" class="btn btn-outline" style="margin-top:var(--space-md);">Visit Website</a>' +
+        '</div></article>'
+      ).join('');
+    });
+  </script>
+</body>
+</html>
