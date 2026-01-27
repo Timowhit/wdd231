@@ -1,14 +1,13 @@
 /**
  * Gilbert Chamber of Commerce
- * Main JavaScript - Shared functionality across all pages
+ * Main JavaScript - All functionality in external file
  */
 
-// Wait for DOM to be ready
+// Wait for DOM
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   updateCopyright();
-  initSmoothScroll();
-  initAnimations();
+  initSpotlights();
 });
 
 /**
@@ -22,27 +21,19 @@ function initNavigation() {
   
   if (!navToggle || !mainNav) return;
   
-  // Toggle mobile menu
   navToggle.addEventListener('click', () => {
     const isOpen = mainNav.classList.contains('active');
     toggleNav(!isOpen);
   });
   
-  // Close menu when clicking overlay
   if (navOverlay) {
-    navOverlay.addEventListener('click', () => {
-      toggleNav(false);
-    });
+    navOverlay.addEventListener('click', () => toggleNav(false));
   }
   
-  // Close menu when clicking a link
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      toggleNav(false);
-    });
+    link.addEventListener('click', () => toggleNav(false));
   });
   
-  // Close menu on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mainNav.classList.contains('active')) {
       toggleNav(false);
@@ -52,10 +43,8 @@ function initNavigation() {
   function toggleNav(open) {
     navToggle.classList.toggle('active', open);
     mainNav.classList.toggle('active', open);
-    navOverlay?.classList.toggle('active', open);
+    if (navOverlay) navOverlay.classList.toggle('active', open);
     navToggle.setAttribute('aria-expanded', open);
-    
-    // Prevent body scroll when menu is open
     document.body.style.overflow = open ? 'hidden' : '';
   }
 }
@@ -71,73 +60,112 @@ function updateCopyright() {
 }
 
 /**
- * Smooth scroll for anchor links
+ * Business Spotlights Loader
  */
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        
-        // Update URL without jumping
-        history.pushState(null, null, targetId);
-      }
-    });
-  });
-}
+function initSpotlights() {
+  const container = document.getElementById('spotlight-container');
+  if (!container) return;
 
-/**
- * Intersection Observer for scroll animations
- */
-function initAnimations() {
-  const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .card, .stat-item');
-  
-  if (!animatedElements.length) return;
-  
-  // Check if user prefers reduced motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-  
-  animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-  
-  // Add CSS for animated state
-  const style = document.createElement('style');
-  style.textContent = `
-    .animated {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+  const SPOTLIGHT_FALLBACK = [
+    {
+      id: 1,
+      name: "Gilbert Family Dentistry",
+      description: "Comprehensive dental care for the whole family, from routine cleanings to cosmetic procedures.",
+      image: "images/business-dental.webp",
+      website: "#"
+    },
+    {
+      id: 3,
+      name: "Agritopia Farm Stand",
+      description: "Fresh, locally grown produce and artisan goods from Gilbert's premier urban farm community.",
+      image: "images/business-farm.webp",
+      website: "#"
+    },
+    {
+      id: 4,
+      name: "Heritage Tech Solutions",
+      description: "IT consulting and managed services for small to medium businesses in the East Valley.",
+      image: "images/business-tech.webp",
+      website: "#"
+    },
+    {
+      id: 8,
+      name: "Cactus Creative Agency",
+      description: "Full-service marketing and design agency helping Arizona businesses grow.",
+      image: "images/business-creative.webp",
+      website: "#"
+    },
+    {
+      id: 14,
+      name: "East Valley Pediatrics",
+      description: "Compassionate pediatric care from newborns through adolescence.",
+      image: "images/business-pediatrics.webp",
+      website: "#"
+    },
+    {
+      id: 15,
+      name: "Arizona Solar Pros",
+      description: "Residential and commercial solar installation with financing options.",
+      image: "images/business-solar.webp",
+      website: "#"
+    },
+    {
+      id: 18,
+      name: "Heritage District Realty",
+      description: "Local experts in Gilbert residential and commercial real estate.",
+      image: "images/business-realty.webp",
+      website: "#"
     }
-  `;
-  document.head.appendChild(style);
+  ];
+
+  loadSpotlights();
+
+  async function loadSpotlights() {
+    let goldMembers;
+
+    try {
+      const response = await fetch('data/members.json');
+      if (!response.ok) throw new Error('Fetch failed');
+      const data = await response.json();
+      goldMembers = data.members.filter(m => m.membershipLevel === 'gold');
+    } catch (error) {
+      console.warn('Using fallback spotlight data:', error.message);
+      goldMembers = SPOTLIGHT_FALLBACK;
+    }
+
+    const spotlights = shuffleArray(goldMembers).slice(0, 3);
+    renderSpotlights(spotlights);
+  }
+
+  function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderSpotlights(spotlights) {
+    container.innerHTML = spotlights.map(member => {
+      const article = document.createElement('article');
+      article.className = 'card business-card';
+      article.innerHTML = `
+        <img src="${member.image}" alt="${member.name}" class="card-image" loading="lazy">
+        <div class="card-content">
+          <span class="membership-badge gold">Gold Member</span>
+          <h3 class="card-title">${member.name}</h3>
+          <p class="card-text">${member.description}</p>
+          <a href="${member.website}" class="btn btn-outline">Visit Website</a>
+        </div>
+      `;
+      return article.outerHTML;
+    }).join('');
+  }
 }
 
 /**
- * Utility: Debounce function
+ * Utility: Debounce
  */
 function debounce(func, wait) {
   let timeout;
@@ -152,17 +180,6 @@ function debounce(func, wait) {
 }
 
 /**
- * Utility: Format phone number
- */
-function formatPhoneNumber(phone) {
-  const cleaned = phone.replace(/\D/g, '');
-  if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
-  }
-  return phone;
-}
-
-/**
  * Utility: Validate email
  */
 function isValidEmail(email) {
@@ -170,49 +187,8 @@ function isValidEmail(email) {
   return re.test(email);
 }
 
-/**
- * Utility: Store data in localStorage
- */
-function storeData(key, data) {
-  try {
-    localStorage.setItem(key, JSON.stringify(data));
-    return true;
-  } catch (e) {
-    console.warn('localStorage not available');
-    return false;
-  }
-}
-
-/**
- * Utility: Get data from localStorage
- */
-function getData(key) {
-  try {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-  } catch (e) {
-    console.warn('localStorage not available');
-    return null;
-  }
-}
-
-/**
- * Track last visit (for "Visit X" counter on directory)
- */
-function trackVisit() {
-  const visits = getData('chamberVisits') || 0;
-  storeData('chamberVisits', visits + 1);
-  storeData('lastVisit', new Date().toISOString());
-}
-
-// Track visit on page load
-trackVisit();
-
-// Export utilities for use in other scripts
+// Export utilities
 window.chamberUtils = {
   debounce,
-  formatPhoneNumber,
-  isValidEmail,
-  storeData,
-  getData
+  isValidEmail
 };

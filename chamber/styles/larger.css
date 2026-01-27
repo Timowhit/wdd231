@@ -1,25 +1,16 @@
-/* Gilbert Chamber of Commerce - Larger Screen Styles */
+/* Gilbert Chamber of Commerce - Responsive Styles */
 /* Media queries for tablets and desktop */
 
-/* ===== TABLET (768px and up) ===== */
+/* ===== TABLET (768px+) ===== */
 @media (min-width: 768px) {
-  :root {
-    --space-md: 1.25rem;
-    --space-lg: 2rem;
-    --space-xl: 2.5rem;
-    --space-2xl: 4rem;
-    --space-3xl: 6rem;
-  }
-
   .container {
     padding: 0 var(--space-lg);
   }
 
   .section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-2xl) 0;
   }
 
-  /* Header */
   .header-container {
     padding: var(--space-md) var(--space-lg);
   }
@@ -49,7 +40,6 @@
     background: transparent;
     box-shadow: none;
     padding: 0;
-    transform: none;
   }
 
   .nav-overlay {
@@ -66,35 +56,26 @@
     padding: var(--space-sm) 0;
   }
 
-  /* Hero */
   .hero {
     min-height: 70vh;
   }
 
   .hero-content {
     max-width: 700px;
-    padding: var(--space-3xl) var(--space-lg);
+    padding: var(--space-2xl) var(--space-lg);
   }
 
   .hero p {
     font-size: 1.25rem;
   }
 
-  /* Cards Grid */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-  }
-
-  /* Business Cards */
+  .cards-grid,
   .business-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
   }
 
-  /* Stats */
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
@@ -104,13 +85,6 @@
     font-size: 2.5rem;
   }
 
-  /* Gallery */
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-  }
-
-  /* Filters */
   .filter-bar {
     flex-direction: row;
     align-items: center;
@@ -123,91 +97,14 @@
     gap: var(--space-md);
   }
 
-  /* Footer */
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Page Header */
   .page-header {
-    padding: var(--space-3xl) var(--space-lg);
+    padding: var(--space-2xl) var(--space-lg);
   }
 
-  /* Two Column Layout */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  .two-col-content {
-    order: 1;
-  }
-
-  .two-col-image {
-    order: 2;
-  }
-
-  .two-col.reverse .two-col-content {
-    order: 2;
-  }
-
-  .two-col.reverse .two-col-image {
-    order: 1;
-  }
-
-  /* Membership Tiers */
-  .tiers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-    align-items: stretch;
-  }
-
-  .tier-card.featured {
-    transform: scale(1.05);
-    z-index: 1;
-  }
-
-  .tier-card.featured:hover {
-    transform: scale(1.08);
-  }
-
-  /* Sidebar Layout */
-  .sidebar-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-xl);
-  }
-
-  .sidebar-layout.reverse {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  /* Form Layout */
-  .form-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-  }
-
-  /* Weather Widget */
-  .weather-current {
-    gap: var(--space-xl);
-  }
-
-  .weather-temp {
-    font-size: 4rem;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: var(--space-3xl) var(--space-xl);
-    margin: var(--space-2xl) 0;
-  }
-
-  /* Events Grid */
   .events-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -221,18 +118,10 @@
     border-bottom: none;
     box-shadow: var(--shadow-sm);
   }
-
-  /* Discover Page - Demographics */
-  .demographics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-  }
 }
 
-/* ===== DESKTOP (1024px and up) ===== */
+/* ===== DESKTOP (1024px+) ===== */
 @media (min-width: 1024px) {
-  /* Hero with Side Image */
   .hero {
     min-height: 80vh;
   }
@@ -245,7 +134,7 @@
   }
 
   .hero-content {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-2xl) 0;
   }
 
   .hero-image {
@@ -260,128 +149,55 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-xl);
   }
 
-  /* Cards Grid */
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Business Cards */
   .business-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Gallery */
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .gallery-item:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  /* Footer */
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr 1fr;
   }
 
-  /* Sidebar Layout */
-  .sidebar-layout {
-    grid-template-columns: 3fr 1fr;
-  }
-
-  /* Home Page Layout */
   .home-main-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--space-xl);
   }
 
-  /* Events */
   .events-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Spotlight Section */
   .spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .tiers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
   }
 }
 
-/* ===== LARGE DESKTOP (1280px and up) ===== */
+/* ===== LARGE DESKTOP (1280px+) ===== */
 @media (min-width: 1280px) {
   .container {
     max-width: 1320px;
   }
 
-  /* Hero */
   .hero-content {
     max-width: 800px;
   }
-
-  /* Business Grid */
-  .business-grid.expanded {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  /* Gallery */
-  .gallery-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
 }
 
-/* ===== HOVER STATES (for non-touch devices) ===== */
-@media (hover: hover) {
-  .nav-link:hover {
-    color: var(--color-primary);
-  }
-
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .tier-card:hover {
-    transform: translateY(-8px);
-  }
-
-  .tier-card.featured:hover {
-    transform: scale(1.08) translateY(-4px);
-  }
-
-  .business-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.15);
-  }
-}
-
-/* ===== REDUCED MOTION ===== */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ===== PRINT STYLES ===== */
+/* ===== PRINT ===== */
 @media print {
   .site-header,
   .site-footer,
@@ -392,23 +208,13 @@
   }
 
   body {
-    background: white;
-    color: black;
+    background: #ffffff;
+    color: #000000;
   }
 
   .card {
     break-inside: avoid;
     box-shadow: none;
-    border: 1px solid #ccc;
-  }
-
-  a {
-    color: black;
-    text-decoration: underline;
-  }
-
-  .hero {
-    min-height: auto;
-    background: none;
+    border: 1px solid #cccccc;
   }
 }
