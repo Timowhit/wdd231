@@ -1,0 +1,568 @@
+/* Gilbert Chamber of Commerce - Join Page Styles */
+
+/* ===== MEMBERSHIP CARDS WITH ANIMATION ===== */
+.membership-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.membership-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  
+  /* Animation on page load */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cardFadeIn 0.6s ease forwards;
+}
+
+/* Staggered animation delays for each card */
+.membership-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.membership-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.membership-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.membership-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.membership-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.membership-card-header {
+  padding: var(--space-lg);
+  text-align: center;
+  color: #ffffff;
+}
+
+.membership-card-header.np {
+  background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-secondary) 100%);
+}
+
+.membership-card-header.bronze {
+  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+}
+
+.membership-card-header.silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+}
+
+.membership-card-header.gold {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #b8860b 100%);
+}
+
+.membership-card-header .tier-name {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.membership-card-header .tier-price {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.membership-card-header .tier-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.membership-card-body {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.membership-card-body p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+}
+
+.membership-info-link {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.membership-info-link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ===== FORM LAYOUT ===== */
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.application-form {
+  padding: var(--space-xl);
+}
+
+.application-form fieldset {
+  border: none;
+  margin-bottom: var(--space-xl);
+  padding: 0;
+}
+
+.application-form legend {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-border);
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-md);
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ===== MEMBERSHIP OPTIONS (Radio Buttons) ===== */
+.membership-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.membership-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.membership-option:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-bg-alt);
+}
+
+.membership-option:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.membership-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-title {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.option-desc {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ===== FORM ACTIONS ===== */
+.form-actions {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.form-actions input[type="submit"] {
+  width: 100%;
+}
+
+/* ===== SIDEBAR (Large Screens) ===== */
+.form-sidebar {
+  display: none;
+}
+
+.form-sidebar h3 {
+  margin-bottom: var(--space-lg);
+}
+
+.sidebar-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sidebar-card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  color: #ffffff;
+  
+  /* Animation */
+  opacity: 0;
+  transform: translateX(20px);
+  animation: sidebarCardFadeIn 0.5s ease forwards;
+}
+
+.sidebar-card:nth-child(1) { animation-delay: 0.2s; }
+.sidebar-card:nth-child(2) { animation-delay: 0.3s; }
+.sidebar-card:nth-child(3) { animation-delay: 0.4s; }
+.sidebar-card:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes sidebarCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-card.np {
+  background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-secondary) 100%);
+}
+
+.sidebar-card.bronze {
+  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+}
+
+.sidebar-card.silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+}
+
+.sidebar-card.gold {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #b8860b 100%);
+}
+
+.sidebar-card h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.sidebar-card .price {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-card .membership-info-link {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.sidebar-card .membership-info-link:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* ===== MODALS ===== */
+.membership-modal {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.membership-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-header {
+  padding: var(--space-xl);
+  text-align: center;
+  color: #ffffff;
+}
+
+.modal-header.np {
+  background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-secondary) 100%);
+}
+
+.modal-header.bronze {
+  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+}
+
+.modal-header.silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+}
+
+.modal-header.gold {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #b8860b 100%);
+}
+
+.modal-header h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  margin-bottom: var(--space-xs);
+}
+
+.modal-price {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: var(--space-xl);
+}
+
+.modal-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.modal-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.modal-body li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.modal-body li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.modal-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== THANK YOU PAGE ===== */
+.thank-you-card {
+  text-align: center;
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--space-lg);
+  background: var(--color-secondary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.application-summary {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: left;
+}
+
+.application-summary h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.summary-value {
+  color: var(--color-text-muted);
+}
+
+.next-steps {
+  text-align: left;
+  margin-bottom: var(--space-xl);
+}
+
+.next-steps h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-md);
+}
+
+.next-steps ol {
+  padding-left: var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.next-steps li {
+  margin-bottom: var(--space-sm);
+}
+
+.thank-you-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ===== RESPONSIVE - TABLET (768px+) ===== */
+@media (min-width: 768px) {
+  .membership-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .thank-you-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ===== RESPONSIVE - DESKTOP (1024px+) ===== */
+@media (min-width: 1024px) {
+  .membership-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .form-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .form-sidebar {
+    display: block;
+  }
+  
+  /* Hide the membership cards section on large screens since sidebar shows them */
+  /* Keep visible for better UX, user can scroll down */
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .membership-card,
+  .sidebar-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .membership-card:hover {
+    transform: none;
+  }
+}

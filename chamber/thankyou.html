@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thank you for applying to join the Gilbert Chamber of Commerce.">
+  <meta name="author" content="Timothy Whitehead">
+  <title>Application Received | Gilbert Chamber of Commerce</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/join.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <span class="logo-title">Gilbert</span>
+          <span class="logo-subtitle">Chamber of Commerce</span>
+        </div>
+      </a>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="discover.html" class="nav-link">Discover</a></li>
+          <li><a href="directory.html" class="nav-link">Directory</a></li>
+          <li><a href="join.html" class="nav-link">Join</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <p class="text-accent">Application Received</p>
+        <h1>Thank You!</h1>
+        <p>We appreciate your interest in joining the Gilbert Chamber of Commerce.</p>
+      </div>
+    </section>
+
+    <!-- Confirmation Section -->
+    <section class="section">
+      <div class="container">
+        <div class="thank-you-card card" style="max-width: 700px; margin: 0 auto; padding: var(--space-2xl);">
+          
+          <!-- Success Icon -->
+          <div class="success-icon">
+            <svg width="60" height="60" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          
+          <h2 style="text-align: center; margin-bottom: var(--space-md);">Your Application Has Been Submitted</h2>
+          <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--space-xl);">
+            We'll review your application and contact you within 2-3 business days. Here's a summary of the information you provided:
+          </p>
+          
+          <!-- Application Summary -->
+          <div class="application-summary">
+            <h3>Application Summary</h3>
+            
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="summary-label">First Name:</span>
+                <span class="summary-value" id="display-first-name">-</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="summary-label">Last Name:</span>
+                <span class="summary-value" id="display-last-name">-</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="summary-label">Email:</span>
+                <span class="summary-value" id="display-email">-</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="summary-label">Mobile Phone:</span>
+                <span class="summary-value" id="display-phone">-</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="summary-label">Business Name:</span>
+                <span class="summary-value" id="display-org-name">-</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="summary-label">Membership Level:</span>
+                <span class="summary-value" id="display-membership">-</span>
+              </div>
+              
+              <div class="summary-item full-width">
+                <span class="summary-label">Submitted On:</span>
+                <span class="summary-value" id="display-timestamp">-</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Next Steps -->
+          <div class="next-steps">
+            <h3>What Happens Next?</h3>
+            <ol>
+              <li>Our membership team will review your application</li>
+              <li>You'll receive a confirmation email within 24 hours</li>
+              <li>A team member will contact you to complete payment</li>
+              <li>Once processed, you'll receive your welcome packet</li>
+            </ol>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="thank-you-actions">
+            <a href="index.html" class="btn btn-primary">Return to Home</a>
+            <a href="directory.html" class="btn btn-outline">Browse Directory</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: var(--color-bg-alt);">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Questions About Your Application?</h2>
+          <p>Our team is here to help. Contact us if you have any questions about your membership application.</p>
+          <div class="cta-buttons">
+            <a href="tel:+14809262626" class="btn btn-gold">Call (480) 926-2626</a>
+            <a href="mailto:info@gilbertchamber.com" class="btn btn-ghost">Email Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="margin-bottom: var(--space-md);">
+              <div class="logo-icon">G</div>
+              <div class="logo-text">
+                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-subtitle">Chamber of Commerce</span>
+              </div>
+            </div>
+            <p>Supporting local businesses and fostering economic growth in Gilbert, Arizona since 1952.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="discover.html">Discover Gilbert</a></li>
+              <li><a href="directory.html">Business Directory</a></li>
+              <li><a href="join.html">Membership</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Events Calendar</a></li>
+              <li><a href="#">Member Benefits</a></li>
+              <li><a href="#">News & Updates</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
+            <p style="margin-top: var(--space-sm);">
+              <a href="tel:+14809262626">(480) 926-2626</a><br>
+              <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year">2024</span> Gilbert Chamber of Commerce. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/thankyou.js"></script>
+</body>
+</html>

@@ -15,6 +15,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/join.css">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
@@ -23,7 +24,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="header-container">
-      <a href="../index.html" class="logo">
+      <a href="index.html" class="logo">
         <div class="logo-icon">G</div>
         <div class="logo-text">
           <span class="logo-title">Gilbert</span>
@@ -105,7 +106,7 @@
       </div>
     </section>
 
-    <!-- Membership Tiers -->
+    <!-- Membership Tiers Section -->
     <section class="section" style="background: var(--color-bg-alt);">
       <div class="container">
         <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
@@ -113,65 +114,59 @@
           <h2>Membership Tiers</h2>
         </div>
         
-        <div class="tiers-grid">
-          <!-- Nonprofit Tier -->
-          <div class="tier-card">
-            <div class="tier-header">
-              <span class="tier-name">Nonprofit</span>
+        <div class="membership-cards">
+          <!-- NP Membership Card -->
+          <div class="membership-card" data-tier="np">
+            <div class="membership-card-header np">
+              <span class="tier-name">NP Membership</span>
+              <div class="tier-price">Free</div>
+            </div>
+            <div class="membership-card-body">
+              <p>For nonprofit organizations serving the Gilbert community.</p>
+              <a href="#" class="membership-info-link" data-modal="np-modal">View Benefits</a>
+            </div>
+          </div>
+          
+          <!-- Bronze Membership Card -->
+          <div class="membership-card" data-tier="bronze">
+            <div class="membership-card-header bronze">
+              <span class="tier-name">Bronze Membership</span>
               <div class="tier-price">$99<span>/year</span></div>
             </div>
-            <ul class="tier-features">
-              <li>Business directory listing</li>
-              <li>Monthly newsletter inclusion</li>
-              <li>Access to networking events</li>
-              <li>Member-only discounts</li>
-              <li>Annual business workshop</li>
-            </ul>
-            <button class="btn btn-outline select-tier" data-tier="nonprofit">Select Nonprofit</button>
+            <div class="membership-card-body">
+              <p>Essential benefits for small businesses starting their journey.</p>
+              <a href="#" class="membership-info-link" data-modal="bronze-modal">View Benefits</a>
+            </div>
           </div>
           
-          <!-- Silver Tier -->
-          <div class="tier-card">
-            <div class="tier-header">
-              <span class="tier-name">Silver</span>
+          <!-- Silver Membership Card -->
+          <div class="membership-card" data-tier="silver">
+            <div class="membership-card-header silver">
+              <span class="tier-name">Silver Membership</span>
               <div class="tier-price">$299<span>/year</span></div>
             </div>
-            <ul class="tier-features">
-              <li>Everything in Nonprofit, plus:</li>
-              <li>Enhanced directory listing with logo</li>
-              <li>Quarterly newsletter feature</li>
-              <li>Social media mentions (4x/year)</li>
-              <li>Priority event registration</li>
-              <li>Business training workshops</li>
-              <li>Ribbon cutting ceremony</li>
-            </ul>
-            <button class="btn btn-secondary select-tier" data-tier="silver">Select Silver</button>
+            <div class="membership-card-body">
+              <p>Enhanced visibility and marketing support for growing businesses.</p>
+              <a href="#" class="membership-info-link" data-modal="silver-modal">View Benefits</a>
+            </div>
           </div>
           
-          <!-- Gold Tier (Featured) -->
-          <div class="tier-card featured">
-            <div class="tier-header">
-              <span class="tier-name">Gold</span>
+          <!-- Gold Membership Card -->
+          <div class="membership-card" data-tier="gold">
+            <div class="membership-card-header gold">
+              <span class="tier-name">Gold Membership</span>
               <div class="tier-price">$599<span>/year</span></div>
             </div>
-            <ul class="tier-features">
-              <li>Everything in Silver, plus:</li>
-              <li>Premium directory placement</li>
-              <li>Monthly newsletter spotlight</li>
-              <li>Weekly social media features</li>
-              <li>Complimentary event table (2x/year)</li>
-              <li>Speaking opportunities at events</li>
-              <li>Website banner advertising</li>
-              <li>VIP luncheon invitations</li>
-              <li>Annual sponsorship recognition</li>
-            </ul>
-            <button class="btn btn-gold select-tier" data-tier="gold">Select Gold</button>
+            <div class="membership-card-body">
+              <p>Premium placement and exclusive benefits for established businesses.</p>
+              <a href="#" class="membership-info-link" data-modal="gold-modal">View Benefits</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Application Form -->
+    <!-- Application Form Section -->
     <section class="section" id="application-form">
       <div class="container">
         <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
@@ -179,170 +174,192 @@
           <h2>Membership Application</h2>
         </div>
         
-        <form id="membership-form" class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl);" novalidate>
-          <!-- Selected Tier Display -->
-          <div id="selected-tier-display" style="background: var(--color-bg-alt); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-xl); display: none;">
-            <p style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
-              <span>Selected Membership: <strong id="selected-tier-name"></strong></span>
-              <span id="selected-tier-price" style="font-weight: 600; color: var(--color-primary);"></span>
-            </p>
-          </div>
-          
-          <!-- Business Information -->
-          <fieldset style="border: none; margin-bottom: var(--space-xl);">
-            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Business Information</legend>
+        <div class="form-layout">
+          <form id="membership-form" class="card application-form" method="get" action="thankyou.html">
             
-            <div class="form-row">
-              <div class="form-group">
-                <label for="business-name" class="form-label required">Business Name</label>
-                <input type="text" id="business-name" name="businessName" class="form-input" required>
-                <span class="form-error">Please enter your business name</span>
+            <!-- Applicant Information -->
+            <fieldset>
+              <legend>Applicant Information</legend>
+              
+              <div class="form-row">
+                <label class="form-group">
+                  <span class="form-label required">First Name</span>
+                  <input 
+                    type="text" 
+                    name="first-name" 
+                    id="first-name"
+                    title="Enter your first name"
+                    autocomplete="given-name"
+                    required
+                    class="form-input"
+                  >
+                </label>
+                
+                <label class="form-group">
+                  <span class="form-label required">Last Name</span>
+                  <input 
+                    type="text" 
+                    name="last-name" 
+                    id="last-name"
+                    title="Enter your last name"
+                    autocomplete="family-name"
+                    required
+                    class="form-input"
+                  >
+                </label>
               </div>
               
-              <div class="form-group">
-                <label for="business-category" class="form-label required">Business Category</label>
-                <select id="business-category" name="businessCategory" class="form-select" required>
-                  <option value="">Select a category</option>
-                  <option value="Automotive">Automotive</option>
-                  <option value="Financial Services">Financial Services</option>
-                  <option value="Food & Beverage">Food & Beverage</option>
-                  <option value="Health & Wellness">Health & Wellness</option>
-                  <option value="Healthcare">Healthcare</option>
-                  <option value="Home & Garden">Home & Garden</option>
-                  <option value="Nonprofit">Nonprofit</option>
-                  <option value="Professional Services">Professional Services</option>
-                  <option value="Real Estate">Real Estate</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Transportation">Transportation</option>
-                  <option value="Other">Other</option>
-                </select>
-                <span class="form-error">Please select a category</span>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="business-description" class="form-label required">Business Description</label>
-              <textarea id="business-description" name="businessDescription" class="form-textarea" placeholder="Tell us about your business (max 200 characters)" maxlength="200" required></textarea>
-              <span class="form-error">Please provide a brief description</span>
-              <span style="font-size: 0.85rem; color: var(--color-text-muted);" id="char-count">0/200 characters</span>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="business-address" class="form-label required">Business Address</label>
-                <input type="text" id="business-address" name="businessAddress" class="form-input" required>
-                <span class="form-error">Please enter your business address</span>
+              <div class="form-row">
+                <label class="form-group">
+                  <span class="form-label">Organizational Title</span>
+                  <input 
+                    type="text" 
+                    name="org-title" 
+                    id="org-title"
+                    title="Enter your title within the organization (minimum 7 characters, letters, hyphens, and spaces only)"
+                    autocomplete="organization-title"
+                    pattern="[A-Za-z\s\-]{7,}"
+                    class="form-input"
+                    placeholder="e.g., Marketing Director"
+                  >
+                  <span class="form-hint">Minimum 7 characters, letters, hyphens, and spaces only</span>
+                </label>
+                
+                <label class="form-group">
+                  <span class="form-label required">Email Address</span>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email"
+                    title="Enter your email address"
+                    autocomplete="email"
+                    required
+                    class="form-input"
+                    placeholder="example@business.com"
+                  >
+                </label>
               </div>
               
-              <div class="form-group">
-                <label for="business-phone" class="form-label required">Phone Number</label>
-                <input type="tel" id="business-phone" name="businessPhone" class="form-input" placeholder="(480) 555-0123" required>
-                <span class="form-error">Please enter a valid phone number</span>
-              </div>
-            </div>
+              <label class="form-group">
+                <span class="form-label required">Mobile Phone</span>
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  id="phone"
+                  title="Enter your mobile phone number"
+                  autocomplete="tel"
+                  required
+                  class="form-input"
+                  placeholder="(480) 555-0123"
+                >
+              </label>
+            </fieldset>
             
-            <div class="form-row">
-              <div class="form-group">
-                <label for="business-website" class="form-label">Website</label>
-                <input type="url" id="business-website" name="businessWebsite" class="form-input" placeholder="https://yourwebsite.com">
-              </div>
+            <!-- Business Information -->
+            <fieldset>
+              <legend>Business Information</legend>
               
-              <div class="form-group">
-                <label for="year-established" class="form-label">Year Established</label>
-                <input type="number" id="year-established" name="yearEstablished" class="form-input" min="1800" max="2024" placeholder="2020">
-              </div>
-            </div>
-          </fieldset>
-          
-          <!-- Contact Information -->
-          <fieldset style="border: none; margin-bottom: var(--space-xl);">
-            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Contact Person</legend>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contact-first" class="form-label required">First Name</label>
-                <input type="text" id="contact-first" name="contactFirst" class="form-input" required>
-                <span class="form-error">Please enter your first name</span>
-              </div>
-              
-              <div class="form-group">
-                <label for="contact-last" class="form-label required">Last Name</label>
-                <input type="text" id="contact-last" name="contactLast" class="form-input" required>
-                <span class="form-error">Please enter your last name</span>
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contact-title" class="form-label">Title/Position</label>
-                <input type="text" id="contact-title" name="contactTitle" class="form-input" placeholder="Owner, Manager, etc.">
-              </div>
-              
-              <div class="form-group">
-                <label for="contact-email" class="form-label required">Email Address</label>
-                <input type="email" id="contact-email" name="contactEmail" class="form-input" required>
-                <span class="form-error">Please enter a valid email address</span>
-              </div>
-            </div>
-          </fieldset>
-          
-          <!-- Membership Level -->
-          <fieldset style="border: none; margin-bottom: var(--space-xl);">
-            <legend style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg);">Membership Level</legend>
-            
-            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-              <label class="form-check">
-                <input type="radio" name="membershipLevel" value="nonprofit" required>
-                <span class="form-check-label">
-                  <strong>Nonprofit</strong> - $99/year
-                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Basic directory listing and networking access</span>
-                </span>
+              <label class="form-group">
+                <span class="form-label required">Business/Organization Name</span>
+                <input 
+                  type="text" 
+                  name="org-name" 
+                  id="org-name"
+                  title="Enter your business or organization name"
+                  autocomplete="organization"
+                  required
+                  class="form-input"
+                >
               </label>
               
-              <label class="form-check">
-                <input type="radio" name="membershipLevel" value="silver">
-                <span class="form-check-label">
-                  <strong>Silver</strong> - $299/year
-                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Enhanced visibility and marketing support</span>
-                </span>
+              <label class="form-group">
+                <span class="form-label">Business Description</span>
+                <textarea 
+                  name="description" 
+                  id="description"
+                  title="Provide a brief description of your business"
+                  class="form-textarea"
+                  placeholder="Tell us about your business (max 200 characters)"
+                  maxlength="200"
+                ></textarea>
+                <span class="form-hint" id="char-count">0/200 characters</span>
               </label>
+            </fieldset>
+            
+            <!-- Membership Level -->
+            <fieldset>
+              <legend>Membership Level</legend>
               
-              <label class="form-check">
-                <input type="radio" name="membershipLevel" value="gold">
-                <span class="form-check-label">
-                  <strong>Gold</strong> - $599/year
-                  <span style="display: block; font-size: 0.85rem; color: var(--color-text-muted);">Premium placement and exclusive benefits</span>
-                </span>
-              </label>
+              <div class="membership-options">
+                <label class="membership-option">
+                  <input type="radio" name="membership" value="np" required>
+                  <span class="option-content">
+                    <span class="option-title">NP Membership</span>
+                    <span class="option-desc">For nonprofit organizations - No fee</span>
+                  </span>
+                </label>
+                
+                <label class="membership-option">
+                  <input type="radio" name="membership" value="bronze">
+                  <span class="option-content">
+                    <span class="option-title">Bronze Membership</span>
+                    <span class="option-desc">Essential benefits - $99/year</span>
+                  </span>
+                </label>
+                
+                <label class="membership-option">
+                  <input type="radio" name="membership" value="silver">
+                  <span class="option-content">
+                    <span class="option-title">Silver Membership</span>
+                    <span class="option-desc">Enhanced visibility - $299/year</span>
+                  </span>
+                </label>
+                
+                <label class="membership-option">
+                  <input type="radio" name="membership" value="gold">
+                  <span class="option-content">
+                    <span class="option-title">Gold Membership</span>
+                    <span class="option-desc">Premium benefits - $599/year</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+            
+            <!-- Hidden Timestamp -->
+            <input type="hidden" name="timestamp" id="timestamp">
+            
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <input type="submit" value="Submit Application" class="btn btn-primary">
             </div>
-            <span class="form-error" id="membership-error" style="display: none;">Please select a membership level</span>
-          </fieldset>
+          </form>
           
-          <!-- Terms and Submit -->
-          <div class="form-group">
-            <label class="form-check">
-              <input type="checkbox" id="terms" name="terms" required>
-              <span class="form-check-label">I agree to the <a href="#" style="text-decoration: underline;">Terms of Membership</a> and <a href="#" style="text-decoration: underline;">Privacy Policy</a></span>
-            </label>
-            <span class="form-error" id="terms-error" style="display: none;">You must agree to the terms</span>
-          </div>
-          
-          <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); flex-wrap: wrap;">
-            <button type="submit" class="btn btn-primary" style="flex: 1; min-width: 200px;">Submit Application</button>
-            <button type="reset" class="btn btn-outline" style="flex: 1; min-width: 200px;">Reset Form</button>
-          </div>
-        </form>
-        
-        <!-- Success Message (hidden by default) -->
-        <div id="form-success" class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-2xl); text-align: center; display: none;">
-          <div style="width: 80px; height: 80px; background: var(--color-secondary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg);">
-            <svg width="40" height="40" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
-          </div>
-          <h2>Application Submitted!</h2>
-          <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">Thank you for your interest in joining the Gilbert Chamber of Commerce. We'll review your application and contact you within 2-3 business days.</p>
-          <a href="index.html" class="btn btn-primary">Return to Home</a>
+          <!-- Membership Cards for Large Screens (displayed beside form) -->
+          <aside class="form-sidebar">
+            <h3>Membership Levels</h3>
+            <div class="sidebar-cards">
+              <div class="sidebar-card np">
+                <h4>NP Membership</h4>
+                <p class="price">Free</p>
+                <a href="#" class="membership-info-link" data-modal="np-modal">Learn More</a>
+              </div>
+              <div class="sidebar-card bronze">
+                <h4>Bronze</h4>
+                <p class="price">$99/yr</p>
+                <a href="#" class="membership-info-link" data-modal="bronze-modal">Learn More</a>
+              </div>
+              <div class="sidebar-card silver">
+                <h4>Silver</h4>
+                <p class="price">$299/yr</p>
+                <a href="#" class="membership-info-link" data-modal="silver-modal">Learn More</a>
+              </div>
+              <div class="sidebar-card gold">
+                <h4>Gold</h4>
+                <p class="price">$599/yr</p>
+                <a href="#" class="membership-info-link" data-modal="gold-modal">Learn More</a>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -384,6 +401,107 @@
       </div>
     </section>
   </main>
+
+  <!-- Modals -->
+  <!-- NP Membership Modal -->
+  <dialog id="np-modal" class="membership-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header np">
+        <h2>NP Membership</h2>
+        <p class="modal-price">Free</p>
+      </div>
+      <div class="modal-body">
+        <h3>Benefits Include:</h3>
+        <ul>
+          <li>Basic business directory listing</li>
+          <li>Access to monthly networking events</li>
+          <li>Chamber newsletter subscription</li>
+          <li>Community event invitations</li>
+          <li>Nonprofit resource guides</li>
+          <li>Volunteer opportunity postings</li>
+          <li>Collaboration with other nonprofits</li>
+        </ul>
+        <p class="modal-note">Perfect for 501(c)(3) nonprofit organizations serving the Gilbert community.</p>
+      </div>
+    </div>
+  </dialog>
+  
+  <!-- Bronze Membership Modal -->
+  <dialog id="bronze-modal" class="membership-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header bronze">
+        <h2>Bronze Membership</h2>
+        <p class="modal-price">$99/year</p>
+      </div>
+      <div class="modal-body">
+        <h3>Benefits Include:</h3>
+        <ul>
+          <li>Business directory listing with contact info</li>
+          <li>Monthly newsletter inclusion</li>
+          <li>Access to all networking events</li>
+          <li>Member-only discounts from partners</li>
+          <li>Annual business workshop access</li>
+          <li>Chamber decal for your business</li>
+          <li>Referral from Chamber office</li>
+        </ul>
+        <p class="modal-note">Ideal for small businesses and startups looking to establish their presence.</p>
+      </div>
+    </div>
+  </dialog>
+  
+  <!-- Silver Membership Modal -->
+  <dialog id="silver-modal" class="membership-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header silver">
+        <h2>Silver Membership</h2>
+        <p class="modal-price">$299/year</p>
+      </div>
+      <div class="modal-body">
+        <h3>Benefits Include:</h3>
+        <ul>
+          <li>Everything in Bronze, plus:</li>
+          <li>Enhanced directory listing with logo</li>
+          <li>Quarterly newsletter feature article</li>
+          <li>Social media mentions (4x/year)</li>
+          <li>Priority event registration</li>
+          <li>Business training workshops</li>
+          <li>Ribbon cutting ceremony</li>
+          <li>10% discount on event sponsorships</li>
+        </ul>
+        <p class="modal-note">Great for growing businesses seeking increased visibility and marketing support.</p>
+      </div>
+    </div>
+  </dialog>
+  
+  <!-- Gold Membership Modal -->
+  <dialog id="gold-modal" class="membership-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header gold">
+        <h2>Gold Membership</h2>
+        <p class="modal-price">$599/year</p>
+      </div>
+      <div class="modal-body">
+        <h3>Benefits Include:</h3>
+        <ul>
+          <li>Everything in Silver, plus:</li>
+          <li>Premium directory placement (top of listings)</li>
+          <li>Home page spotlight rotation</li>
+          <li>Monthly newsletter spotlight</li>
+          <li>Weekly social media features</li>
+          <li>Complimentary event table (2x/year)</li>
+          <li>Speaking opportunities at events</li>
+          <li>Website banner advertising</li>
+          <li>VIP luncheon invitations</li>
+          <li>25% discount on all sponsorships</li>
+        </ul>
+        <p class="modal-note">Best for established businesses wanting maximum exposure and exclusive benefits.</p>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Footer -->
   <footer class="site-footer">

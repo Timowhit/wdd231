@@ -1,77 +1,41 @@
 /**
  * Gilbert Chamber of Commerce
- * Join Page - Membership form validation and submission
+ * Join Page - Form functionality, modals, and validation
  */
 
 // DOM Elements
 const membershipForm = document.getElementById('membership-form');
-const formSuccess = document.getElementById('form-success');
-const selectedTierDisplay = document.getElementById('selected-tier-display');
-const selectedTierName = document.getElementById('selected-tier-name');
-const selectedTierPrice = document.getElementById('selected-tier-price');
+const timestampField = document.getElementById('timestamp');
 const charCount = document.getElementById('char-count');
-const descriptionTextarea = document.getElementById('business-description');
-
-// Tier pricing
-const tierPricing = {
-  nonprofit: { name: 'Nonprofit', price: '$99/year' },
-  silver: { name: 'Silver', price: '$299/year' },
-  gold: { name: 'Gold', price: '$599/year' }
-};
+const descriptionTextarea = document.getElementById('description');
 
 /**
  * Initialize join page functionality
  */
 function initJoinPage() {
-  setupTierSelection();
+  setTimestamp();
   setupCharacterCount();
-  setupFormValidation();
   setupPhoneFormatting();
+  setupModals();
 }
 
 /**
- * Handle tier selection from cards
+ * Set the hidden timestamp field with current date/time
  */
-function setupTierSelection() {
-  const tierButtons = document.querySelectorAll('.select-tier');
-  const membershipRadios = document.querySelectorAll('input[name="membershipLevel"]');
-  
-  tierButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tier = btn.dataset.tier;
-      
-      // Select the corresponding radio button
-      const radio = document.querySelector(`input[name="membershipLevel"][value="${tier}"]`);
-      if (radio) {
-        radio.checked = true;
-        updateSelectedTierDisplay(tier);
-      }
-      
-      // Scroll to form
-      const form = document.getElementById('application-form');
-      if (form) {
-        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-  
-  // Update display when radio buttons change
-  membershipRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      updateSelectedTierDisplay(radio.value);
-    });
-  });
-}
-
-/**
- * Update the selected tier display banner
- */
-function updateSelectedTierDisplay(tier) {
-  if (!selectedTierDisplay || !tierPricing[tier]) return;
-  
-  selectedTierDisplay.style.display = 'block';
-  selectedTierName.textContent = tierPricing[tier].name;
-  selectedTierPrice.textContent = tierPricing[tier].price;
+function setTimestamp() {
+  if (timestampField) {
+    const now = new Date();
+    // Format: "January 15, 2024 at 3:45 PM"
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    };
+    timestampField.value = now.toLocaleString('en-US', options);
+  }
 }
 
 /**
@@ -98,7 +62,7 @@ function setupCharacterCount() {
  * Phone number formatting
  */
 function setupPhoneFormatting() {
-  const phoneInput = document.getElementById('business-phone');
+  const phoneInput = document.getElementById('phone');
   if (!phoneInput) return;
   
   phoneInput.addEventListener('input', (e) => {
@@ -115,172 +79,43 @@ function setupPhoneFormatting() {
 }
 
 /**
- * Form validation
+ * Setup modal functionality
  */
-function setupFormValidation() {
-  if (!membershipForm) return;
+function setupModals() {
+  const modalLinks = document.querySelectorAll('.membership-info-link');
+  const modals = document.querySelectorAll('.membership-modal');
   
-  membershipForm.addEventListener('submit', handleFormSubmit);
-  membershipForm.addEventListener('reset', handleFormReset);
-  
-  // Real-time validation on blur
-  const inputs = membershipForm.querySelectorAll('.form-input, .form-select, .form-textarea');
-  inputs.forEach(input => {
-    input.addEventListener('blur', () => validateField(input));
-    input.addEventListener('input', () => {
-      if (input.classList.contains('error')) {
-        validateField(input);
+  // Open modal when clicking links
+  modalLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = link.dataset.modal;
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.showModal();
       }
     });
   });
-}
-
-/**
- * Handle form submission
- */
-function handleFormSubmit(e) {
-  e.preventDefault();
   
-  // Validate all fields
-  const isValid = validateForm();
-  
-  if (isValid) {
-    // Collect form data
-    const formData = new FormData(membershipForm);
-    const data = Object.fromEntries(formData.entries());
+  // Close modal functionality
+  modals.forEach(modal => {
+    // Close button
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.close();
+      });
+    }
     
-    // Store submission (in real app, this would be sent to server)
-    const submissions = window.chamberUtils.getData('membershipSubmissions') || [];
-    submissions.push({
-      ...data,
-      submittedAt: new Date().toISOString(),
-      id: Date.now()
+    // Close when clicking backdrop
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
     });
-    window.chamberUtils.storeData('membershipSubmissions', submissions);
     
-    // Show success message
-    membershipForm.style.display = 'none';
-    formSuccess.style.display = 'block';
-    
-    // Scroll to success message
-    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-    console.log('Form submitted:', data);
-  }
-}
-
-/**
- * Handle form reset
- */
-function handleFormReset() {
-  // Clear all error states
-  membershipForm.querySelectorAll('.error').forEach(el => {
-    el.classList.remove('error');
+    // Close with Escape key (handled automatically by dialog element)
   });
-  
-  // Hide selected tier display
-  if (selectedTierDisplay) {
-    selectedTierDisplay.style.display = 'none';
-  }
-  
-  // Reset character count
-  if (charCount) {
-    charCount.textContent = '0/200 characters';
-    charCount.style.color = 'var(--color-text-muted)';
-  }
-}
-
-/**
- * Validate entire form
- */
-function validateForm() {
-  let isValid = true;
-  
-  // Validate all required inputs
-  const requiredInputs = membershipForm.querySelectorAll('[required]');
-  requiredInputs.forEach(input => {
-    if (!validateField(input)) {
-      isValid = false;
-    }
-  });
-  
-  // Validate membership level selection
-  const membershipSelected = membershipForm.querySelector('input[name="membershipLevel"]:checked');
-  const membershipError = document.getElementById('membership-error');
-  if (!membershipSelected) {
-    if (membershipError) membershipError.style.display = 'block';
-    isValid = false;
-  } else {
-    if (membershipError) membershipError.style.display = 'none';
-  }
-  
-  // Validate terms checkbox
-  const termsCheckbox = document.getElementById('terms');
-  const termsError = document.getElementById('terms-error');
-  if (!termsCheckbox?.checked) {
-    if (termsError) termsError.style.display = 'block';
-    isValid = false;
-  } else {
-    if (termsError) termsError.style.display = 'none';
-  }
-  
-  // Scroll to first error
-  if (!isValid) {
-    const firstError = membershipForm.querySelector('.error, [style*="display: block"]');
-    if (firstError) {
-      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-  
-  return isValid;
-}
-
-/**
- * Validate individual field
- */
-function validateField(input) {
-  const value = input.value.trim();
-  let isValid = true;
-  
-  // Check required
-  if (input.required && !value) {
-    isValid = false;
-  }
-  
-  // Check email format
-  if (input.type === 'email' && value) {
-    isValid = window.chamberUtils.isValidEmail(value);
-  }
-  
-  // Check phone format (basic validation)
-  if (input.type === 'tel' && value) {
-    const digits = value.replace(/\D/g, '');
-    isValid = digits.length >= 10;
-  }
-  
-  // Check URL format
-  if (input.type === 'url' && value) {
-    try {
-      new URL(value);
-      isValid = true;
-    } catch {
-      isValid = false;
-    }
-  }
-  
-  // Check select has value
-  if (input.tagName === 'SELECT' && input.required && !value) {
-    isValid = false;
-  }
-  
-  // Update UI
-  if (isValid) {
-    input.classList.remove('error');
-  } else {
-    input.classList.add('error');
-  }
-  
-  return isValid;
 }
 
 // Initialize when DOM is ready

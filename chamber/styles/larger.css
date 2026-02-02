@@ -184,6 +184,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
   }
+
+  .tier-name {
+    font-size: x-large;
+    font-weight: 700;
+  }
 }
 
 /* ===== LARGE DESKTOP (1280px+) ===== */
