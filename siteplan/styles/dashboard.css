@@ -1,0 +1,341 @@
+/* ======================================================
+   1. Root variables
+====================================================== */
+:root{
+    --bg-page: #3f4040;
+    --bg-card: #2b2b2b;
+    --bg-header: #1f1f1f;
+    --text: #fff;
+    --glass: #ffffff22;
+    --shadow:#141313;
+    --yellow: #FDBF02;
+    --red: #FF0000;
+    --green: #008000;
+}
+
+/* ======================================================
+   2. Global base / reset
+====================================================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #212529;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar{
+    width: 0px;
+}
+
+/* ======================================================
+   3. Typography
+====================================================== */
+h1 { font-size: 2.8vh; }
+
+.display-4 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: 600;
+}
+
+/* ======================================================
+   4. Utility helpers
+====================================================== */
+/* Colors */
+.bg-dark { background-color: #212529; }
+.bg-black { background-color: #000000; }
+
+.good { background-color: var(--green); }
+.bad { background-color: var(--red); }
+
+/* Text */
+.fw-bold { font-weight: bold; }
+.text-center { text-align: center; }
+.text-end { text-align: right; }
+
+/* Flex */
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-grow-1 {
+    flex-grow: 1;
+    max-height: 3000px;
+}
+.align-items-center { align-items: center; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+
+/* Spacing */
+.gap { height: 1vh; }
+.p-1, .p-2 { padding: 1vh; }
+
+.py-2 {
+    padding-top: clamp(0.5rem, 1vw, 1rem);
+    padding-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.px-3 {
+    padding-left: clamp(0.75rem, 1.5vw, 1.5rem);
+    padding-right: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+/* ======================================================
+   5. Grid / Bootstrap overrides
+====================================================== */
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/* ======================================================
+   6. Layout containers
+====================================================== */
+header {
+    height: 7vh;
+    background-color: #000000;
+    box-shadow: 0vw 0.5vh 1.2vh 1px var(--shadow);
+    border-bottom: 0.2vh solid var(--red);
+}
+
+header .header-left,
+header .header-center,
+header .header-right {
+    display: flex;
+    align-items: center;
+    font-size: 4vh;
+}
+
+header .header-left {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+}
+
+header .header-center {
+    justify-content: center;
+    color: white;
+}
+
+.header-logo {
+    height: 6vh;
+    width: auto;
+}
+
+.app-header {
+    height: 7vh;
+    padding: 1vh 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    border-bottom: 0.2vh solid var(--red);
+    box-shadow: 0 0.5vh 1.2vh var(--shadow);
+}
+
+.dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    overflow: hidden;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+#currentYear {
+    font-size: 1.5vh;
+    color: var(--glass);
+    margin: 0;
+}
+
+/* ======================================================
+   7. Cards
+====================================================== */
+.dashboard-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #212529;
+    border-radius: 1vw;
+    overflow: hidden;
+}
+
+.card {
+    border-radius: 1vw;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: clamp(0.4rem, 0.8vh, 0.8rem)
+             clamp(0.75rem, 1.5vw, 1.5rem);
+    height: 15%;
+}
+
+.card-body {
+    padding: clamp(0.5rem, 1vw, 1rem);
+    height: 60%;
+}
+
+/* ======================================================
+   8. Gridview container
+====================================================== */
+.gridview-container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background: var(--bg-page);
+    padding: .75rem;
+    border: 0.1vw solid var(--glass);
+    border-radius: 1vw;
+}
+
+/* ======================================================
+   9. Lines grid / cells
+====================================================== */
+.lines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5vh 0.5vw;
+    padding: 1vh;
+    border: 0.1vw solid var(--glass);
+    border-radius: 2vh;
+    background: #2f2f2f;
+    box-shadow: inset 0.3vh 0.4vh 2px 1px var(--shadow);
+}
+
+.line-col {
+    display: grid;
+    gap: 0.1vh;
+}
+
+.line-header {
+    background: var(--bg-header);
+    text-align: center;
+    padding: .6rem .4rem;
+    letter-spacing: 0.1vw;
+    border-radius: 1vh;
+    z-index: 10;
+}
+
+.cell {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 8vh;
+    font-weight: 700;
+    font-size: 1.5vw;
+    text-align: center;
+    border-radius: 1vh;
+    margin: 0.25vh 0.5vw;
+    box-shadow: inset 0.3vh 0.4vh 2px 1px var(--shadow);
+}
+
+.cell-top {
+    grid-template-columns: 1fr 2vh;
+    height: 17vh;
+    font-size: 4.5vh;
+    border: 0.1vw solid var(--glass);
+    box-shadow: 0.3vw 0.5vh 1.2vh 1px var(--shadow);
+    z-index: 5;
+}
+
+.cell .age {
+    position: absolute;
+    right: 0.3vw;
+    font-size: 3.5vh;
+    font-weight: 600;
+    background: #ffffff55;
+    color: #111;
+    padding: 2px 6px;
+    border-radius: 1vh;
+}
+
+/* ======================================================
+   10. KPI section
+====================================================== */
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0.5vh;
+    margin: 1vh 4vw;
+    background: #2b2b2b;
+    border: 0.1vw solid var(--glass);
+    border-radius: 2vh;
+}
+
+.kpi-head {
+    background: var(--bg-header);
+    font-weight: 700;
+    font-size: 2.6vh;
+    text-align: center;
+    padding: .4rem .25rem;
+    margin: 0.5vh 1.5vw;
+    border-bottom: 0.2vh solid var(--red);
+    border-radius: 2vh;
+}
+
+.kpi-val {
+    background: var(--bg-page);
+    font-weight: 800;
+    font-size: 8vh;
+    text-align: center;
+    margin: 0.1vh 1.2vw 1vh;
+    border-radius: 1vw;
+    border: 0.1vw solid var(--glass);
+    box-shadow: 0.3vh 0.5vh 4px 3px var(--bg-header);
+}
+
+/* ======================================================
+   11. Dark Mode (JS-driven)
+====================================================== */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header {
+    background-color: #000000;
+}
+
+.dark-mode .card {
+    background-color: var(--bg-card);
+}
+
+.dark-mode .gridview-container {
+    background: var(--bg-page);
+}
+
+.dark-mode .line-header {
+    background: var(--bg-header);
+}
+
+.dark-mode .kpi-row {
+    background: #2b2b2b;
+}
+
+.dark-mode .kpi-val {
+    background: var(--bg-page);
+}
+
+/* ======================================================
+   12. Media queries
+====================================================== */
+@media (max-width: 1700px){
+    .lines-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1300px){
+    .lines-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 870px){
+    .lines-grid { grid-template-columns: 1fr; }
+}

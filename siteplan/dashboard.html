@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Magna Steyr Mesa Dashboard Wireframe" />
+    <meta name="author" content="Timothy A Whitehead" />
+    <title>Magna Steyr Mesa - Dashboard Wireframe</title>
+    <link href="styles/dashboard.css" rel="stylesheet" />
+    <script src="scripts/dashboard.js" defer></script>
+</head>
+<body>
+    <header class="app-header">
+        
+        <div class="header-left">Mainline Dashboard</div>        
+       
+        <div class="header-center">
+            <span id="lblTime"></span>
+        </div>
+                
+        <div class="header-right">
+            <img src="images/Magnalog.png" alt="Magna Steyr Logo" class="header-logo" />
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <!-- ====================================== -->
+        <!-- DATA GRID SECTION                      -->
+        <!-- ====================================== -->
+        <div class="flex-grow-1" style="position: relative;">
+            <div class="dashboard-card">
+                <div class="card-body">
+                    <!-- ========================================= -->
+                    <!-- GRID SECTION                              -->
+                    <!-- ========================================= -->
+                    <div class="lines-grid">
+
+                        <!-- Column 1 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>Station 1</h1>
+                        </header>
+
+                        <!-- Column 1 Current Car -->
+                        <div class="cell cell-top bg-yellow">
+                            <div class="cell-main">CAR1000 <span class="age">44m</span></div>
+                        </div>
+
+                        <!-- Gap -->
+                        <span class="gap"></span>
+
+                        <!-- Column 1 Past Cars -->
+                        <div class="cell bg-red">CAR14397 <span class="age">68m</span></div>
+                        <div class="cell bg-green">CAR14396 <span class="age">41m</span></div>
+                        <div class="cell bg-red">CAR14395 <span class="age">51m</span></div>
+                        <div class="cell bg-green">CAR14394 <span class="age">45m</span></div>
+                        </section>
+
+                        <!-- Column 2 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>Station 2</h1>
+                        </header>
+
+                        <!-- Column 2 Current Car -->
+                        <div class="cell cell-top bg-yellow">
+                            <div class="cell-main">CAR14397<span class="age">42m</span></div>
+                        </div>
+                        
+                        <!-- Gap -->
+                        <span class="gap"></span>
+                        
+                        <!-- Column 2 Past Cars -->
+                        <div class="cell bg-green">CAR14396 <span class="age">40m</span></div>
+                        <div class="cell bg-green">CAR14395 <span class="age">44m</span></div>
+                        <div class="cell bg-red">CAR14394 <span class="age">46m</span></div>
+                        <div class="cell bg-green">CAR14393 <span class="age">43m</span></div>
+                        </section>
+
+                        <!-- Column 3 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>Station 3</h1>
+                        </header>
+                        
+                        <!-- Column 3 Current Car -->
+                        <div class="cell cell-top">
+                            <div class="cell-main">CAR14396<span class="age">38m</span></div>
+                        </div>
+                        
+                        <!-- Gap -->
+                        <span class="gap"></span>
+                        
+                        <!-- Column 3 Past Cars -->
+                        <div class="cell bg-green">CAR14395 <span class="age">45m</span></div>
+                        <div class="cell bg-red">CAR14394 <span class="age">48m</span></div>
+                        <div class="cell bg-red">CAR14393 <span class="age">80m</span></div>
+                        <div class="cell bg-red">CAR14392 <span class="age">51m</span></div>
+                        </section>
+
+                        <!-- Column 4 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>Station 4</h1>
+                        </header>
+
+                        <!-- Column 4 Current Car -->
+                        <div class="cell cell-top">
+                            <div class="cell-main">CAR14395<span class="age">40m</span></div>
+                        </div>
+
+                        <!-- Gap -->
+                        <span class="gap"></span>
+
+                        <!-- Column 4 Past Cars -->
+                        <div class="cell bg-green">CAR14394 <span class="age">40m</span></div>
+                        <div class="cell bg-green">CAR14393 <span class="age">42m</span></div>
+                        <div class="cell bg-green">CAR14392 <span class="age">43m</span></div>
+                        <div class="cell bg-green">CAR14391 <span class="age">43m</span></div>
+                        </section>
+                    </div>
+                </div>
+                <!-- ========================================= -->
+                <!-- KPI SECTION                               -->
+                <!-- ========================================= -->
+                <div class="kpi-row">
+                    <!-- KPI Header 1 -->
+                    <div class="kpi-head">Target</div>
+                    <!-- KPI Header 2 -->
+                    <div class="kpi-head">Output</div>
+                    <!-- KPI Header 3 -->
+                    <div class="kpi-head">Quality</div>
+                    <!-- KPI Header 4 -->
+                    <div class="kpi-head">Downtime</div>
+
+
+                    <!-- KPI Value 1 -->
+                    <div id="kpi1" class="kpi-val">10</div>
+                    <!-- KPI Value 2 -->
+                    <div id="kpi2" class="kpi-val">5</div>
+                    <!-- KPI Value 3 -->
+                    <div id="kpi3" class="kpi-val">87%</div>
+                    <!-- KPI Value 4 -->
+                    <div id="kpi4" class="kpi-val">84m</div>
+                </div>
+            </div>
+        </div>
+        <!-- ========================================= -->
+        <!-- FOOTER SECTION                            -->
+        <!-- ========================================= -->
+        <!--
+        <footer>
+            <p id="currentYear" class="glass">Timothy A Whitehead | Arizona, USA</p>
+        </footer> 
+        -->
+    </main>
+</body>
+</html>
