@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thank you for applying to join the Gilbert Chamber of Commerce.">
+  <meta name="description" content="Thank you for your membership application - Gilbert Chamber of Commerce">
   <meta name="author" content="Timothy Whitehead">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Application Received | Gilbert Chamber of Commerce">
+  <meta property="og:description" content="Thank you for applying to join the Gilbert Chamber of Commerce.">
+  <meta property="og:image" content="https://timowhit.github.io/wdd231/chamber/images/og-image.jpg">
+  <meta property="og:url" content="https://timowhit.github.io/wdd231/chamber/thankyou.html">
+  <meta property="og:type" content="website">
+  
   <title>Application Received | Gilbert Chamber of Commerce</title>
   
   <!-- Fonts -->
@@ -19,6 +27,10 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+  
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/thankyou.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -52,104 +64,56 @@
   </header>
 
   <main>
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Thank You Section -->
+    <section class="section thankyou-section">
       <div class="container">
-        <p class="text-accent">Application Received</p>
-        <h1>Thank You!</h1>
-        <p>We appreciate your interest in joining the Gilbert Chamber of Commerce.</p>
-      </div>
-    </section>
-
-    <!-- Confirmation Section -->
-    <section class="section">
-      <div class="container">
-        <div class="thank-you-card card" style="max-width: 700px; margin: 0 auto; padding: var(--space-2xl);">
-          
-          <!-- Success Icon -->
-          <div class="success-icon">
-            <svg width="60" height="60" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
+        <div class="thankyou-content">
+          <div class="thankyou-icon">
+            <svg width="80" height="80" fill="none" stroke="var(--color-primary)" stroke-width="2" viewBox="0 0 24 24">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
               <polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
           </div>
           
-          <h2 style="text-align: center; margin-bottom: var(--space-md);">Your Application Has Been Submitted</h2>
-          <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--space-xl);">
-            We'll review your application and contact you within 2-3 business days. Here's a summary of the information you provided:
-          </p>
+          <h1>Application Received!</h1>
+          <p class="thankyou-message">Thank you for your interest in joining the Gilbert Chamber of Commerce. We've received your membership application and will be in touch soon.</p>
           
-          <!-- Application Summary -->
-          <div class="application-summary">
-            <h3>Application Summary</h3>
-            
-            <div class="summary-grid">
-              <div class="summary-item">
-                <span class="summary-label">First Name:</span>
-                <span class="summary-value" id="display-first-name">-</span>
-              </div>
+          <div class="submission-details card">
+            <h2>Submission Details</h2>
+            <dl class="details-list">
+              <dt>Name:</dt>
+              <dd id="display-name">—</dd>
               
-              <div class="summary-item">
-                <span class="summary-label">Last Name:</span>
-                <span class="summary-value" id="display-last-name">-</span>
-              </div>
+              <dt>Organization:</dt>
+              <dd id="display-org">—</dd>
               
-              <div class="summary-item">
-                <span class="summary-label">Email:</span>
-                <span class="summary-value" id="display-email">-</span>
-              </div>
+              <dt>Email:</dt>
+              <dd id="display-email">—</dd>
               
-              <div class="summary-item">
-                <span class="summary-label">Mobile Phone:</span>
-                <span class="summary-value" id="display-phone">-</span>
-              </div>
+              <dt>Phone:</dt>
+              <dd id="display-phone">—</dd>
               
-              <div class="summary-item">
-                <span class="summary-label">Business Name:</span>
-                <span class="summary-value" id="display-org-name">-</span>
-              </div>
+              <dt>Membership Level:</dt>
+              <dd id="display-membership">—</dd>
               
-              <div class="summary-item">
-                <span class="summary-label">Membership Level:</span>
-                <span class="summary-value" id="display-membership">-</span>
-              </div>
-              
-              <div class="summary-item full-width">
-                <span class="summary-label">Submitted On:</span>
-                <span class="summary-value" id="display-timestamp">-</span>
-              </div>
-            </div>
+              <dt>Submitted:</dt>
+              <dd id="display-timestamp">—</dd>
+            </dl>
           </div>
           
-          <!-- Next Steps -->
           <div class="next-steps">
-            <h3>What Happens Next?</h3>
+            <h2>What Happens Next?</h2>
             <ol>
-              <li>Our membership team will review your application</li>
-              <li>You'll receive a confirmation email within 24 hours</li>
-              <li>A team member will contact you to complete payment</li>
-              <li>Once processed, you'll receive your welcome packet</li>
+              <li>Our membership team will review your application within 1-2 business days.</li>
+              <li>You'll receive a confirmation email with payment instructions (if applicable).</li>
+              <li>Once approved, you'll get access to all member benefits and resources.</li>
+              <li>A welcome packet will be sent to your business address.</li>
             </ol>
           </div>
           
-          <!-- Action Buttons -->
-          <div class="thank-you-actions">
+          <div class="thankyou-actions">
             <a href="index.html" class="btn btn-primary">Return to Home</a>
             <a href="directory.html" class="btn btn-outline">Browse Directory</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" style="background: var(--color-bg-alt);">
-      <div class="container">
-        <div class="cta-section">
-          <h2>Questions About Your Application?</h2>
-          <p>Our team is here to help. Contact us if you have any questions about your membership application.</p>
-          <div class="cta-buttons">
-            <a href="tel:+14809262626" class="btn btn-gold">Call (480) 926-2626</a>
-            <a href="mailto:info@gilbertchamber.com" class="btn btn-ghost">Email Us</a>
           </div>
         </div>
       </div>
@@ -162,10 +126,10 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-section">
-            <div class="logo" style="margin-bottom: var(--space-md);">
+            <div class="logo footer-logo">
               <div class="logo-icon">G</div>
               <div class="logo-text">
-                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-title">Gilbert</span>
                 <span class="logo-subtitle">Chamber of Commerce</span>
               </div>
             </div>
@@ -195,7 +159,7 @@
           <div class="footer-section">
             <h4>Contact</h4>
             <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
-            <p style="margin-top: var(--space-sm);">
+            <p class="footer-contact">
               <a href="tel:+14809262626">(480) 926-2626</a><br>
               <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
             </p>
@@ -209,8 +173,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="scripts/main.js"></script>
-  <script src="scripts/thankyou.js"></script>
 </body>
 </html>

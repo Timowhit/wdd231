@@ -1,122 +1,131 @@
 /**
- * Gilbert Chamber of Commerce
- * Join Page - Form functionality, modals, and validation
+ * Gilbert Chamber of Commerce - Join Page JavaScript
+ * Handles form functionality including timestamp, character counter, and modals
  */
 
-// DOM Elements
-const membershipForm = document.getElementById('membership-form');
-const timestampField = document.getElementById('timestamp');
-const charCount = document.getElementById('char-count');
-const descriptionTextarea = document.getElementById('description');
-
-/**
- * Initialize join page functionality
- */
-function initJoinPage() {
-  setTimestamp();
-  setupCharacterCount();
-  setupPhoneFormatting();
-  setupModals();
-}
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+  initTimestamp();
+  initCharacterCounter();
+  initMembershipModals();
+  initMembershipCardAnimation();
+});
 
 /**
- * Set the hidden timestamp field with current date/time
+ * Set the timestamp when the page loads
  */
-function setTimestamp() {
+function initTimestamp() {
+  const timestampField = document.getElementById('timestamp');
   if (timestampField) {
-    const now = new Date();
-    // Format: "January 15, 2024 at 3:45 PM"
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    };
-    timestampField.value = now.toLocaleString('en-US', options);
+    timestampField.value = new Date().toISOString();
   }
 }
 
 /**
- * Character count for description textarea
+ * Initialize character counter for textarea
  */
-function setupCharacterCount() {
-  if (!descriptionTextarea || !charCount) return;
-  
-  descriptionTextarea.addEventListener('input', () => {
-    const count = descriptionTextarea.value.length;
-    const max = descriptionTextarea.maxLength;
-    charCount.textContent = `${count}/${max} characters`;
+function initCharacterCounter() {
+  const textarea = document.getElementById('description');
+  const charCount = document.getElementById('char-count');
+
+  if (!textarea || !charCount) return;
+
+  const updateCount = () => {
+    const count = textarea.value.length;
+    const maxLength = textarea.getAttribute('maxlength') || 200;
+    charCount.textContent = `${count}/${maxLength} characters`;
     
-    // Visual feedback when approaching limit
-    if (count >= max * 0.9) {
-      charCount.style.color = 'var(--color-primary)';
+    // Add warning class when approaching limit
+    if (count >= maxLength * 0.9) {
+      charCount.classList.add('warning');
     } else {
-      charCount.style.color = 'var(--color-text-muted)';
+      charCount.classList.remove('warning');
     }
-  });
+  };
+
+  textarea.addEventListener('input', updateCount);
+  // Initialize count on page load
+  updateCount();
 }
 
 /**
- * Phone number formatting
+ * Initialize membership information modals
  */
-function setupPhoneFormatting() {
-  const phoneInput = document.getElementById('phone');
-  if (!phoneInput) return;
-  
-  phoneInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, '');
-    
-    if (value.length >= 6) {
-      value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
-    } else if (value.length >= 3) {
-      value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
-    }
-    
-    e.target.value = value;
-  });
-}
-
-/**
- * Setup modal functionality
- */
-function setupModals() {
+function initMembershipModals() {
   const modalLinks = document.querySelectorAll('.membership-info-link');
-  const modals = document.querySelectorAll('.membership-modal');
-  
-  // Open modal when clicking links
+  const modals = document.querySelectorAll('.modal');
+  const body = document.body;
+
+  // Open modal when info link is clicked
   modalLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const modalId = link.dataset.modal;
+      const modalId = link.getAttribute('data-modal');
       const modal = document.getElementById(modalId);
       if (modal) {
-        modal.showModal();
+        modal.classList.add('active');
+        body.classList.add('modal-open');
+        // Focus the close button for accessibility
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
       }
     });
   });
-  
+
   // Close modal functionality
   modals.forEach(modal => {
     // Close button
     const closeBtn = modal.querySelector('.modal-close');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
-        modal.close();
+        closeModal(modal);
       });
     }
-    
-    // Close when clicking backdrop
+
+    // Click outside modal content
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.close();
+        closeModal(modal);
       }
     });
-    
-    // Close with Escape key (handled automatically by dialog element)
   });
+
+  // Close modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modals.forEach(modal => {
+        if (modal.classList.contains('active')) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    body.classList.remove('modal-open');
+  }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initJoinPage);
+/**
+ * Initialize membership card animations on scroll
+ */
+function initMembershipCardAnimation() {
+  const cards = document.querySelectorAll('.membership-card');
+  
+  if (!cards.length || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  cards.forEach(card => observer.observe(card));
+}

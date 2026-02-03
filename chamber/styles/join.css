@@ -162,12 +162,6 @@
   margin-bottom: var(--space-md);
 }
 
-.form-hint {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-top: var(--space-xs);
-}
-
 /* ===== MEMBERSHIP OPTIONS (Radio Buttons) ===== */
 .membership-options {
   display: flex;
@@ -227,7 +221,7 @@
   border-top: 1px solid var(--color-border);
 }
 
-.form-actions input[type="submit"] {
+.form-actions .btn {
   width: 100%;
 }
 
@@ -432,6 +426,9 @@
 /* ===== THANK YOU PAGE ===== */
 .thank-you-card {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-2xl);
 }
 
 .success-icon {
@@ -443,6 +440,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.thank-you-title {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.thank-you-intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
 }
 
 .application-summary {
@@ -548,9 +556,6 @@
   .form-sidebar {
     display: block;
   }
-  
-  /* Hide the membership cards section on large screens since sidebar shows them */
-  /* Keep visible for better UX, user can scroll down */
 }
 
 /* ===== REDUCED MOTION ===== */

@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Gilbert Chamber of Commerce Business Directory - Find local businesses, services, and organizations in Gilbert, Arizona.">
   <meta name="author" content="Timothy Whitehead">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Business Directory | Gilbert Chamber of Commerce">
+  <meta property="og:description" content="Find local businesses, services, and organizations in Gilbert, Arizona. Browse our directory of trusted chamber members.">
+  <meta property="og:image" content="https://timowhit.github.io/wdd231/chamber/images/og-image.jpg">
+  <meta property="og:url" content="https://timowhit.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+  
   <title>Business Directory | Gilbert Chamber of Commerce</title>
   
   <!-- Fonts -->
@@ -19,12 +27,16 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+  
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/directory.js" defer></script>
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
     <div class="header-container">
-      <a href="../index.html" class="logo">
+      <a href="index.html" class="logo">
         <div class="logo-icon">G</div>
         <div class="logo-text">
           <span class="logo-title">Gilbert</span>
@@ -40,7 +52,7 @@
       
       <nav class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="discover.html" class="nav-link">Discover</a></li>
           <li><a href="directory.html" class="nav-link active">Directory</a></li>
           <li><a href="join.html" class="nav-link">Join</a></li>
@@ -128,7 +140,7 @@
         </div>
         
         <!-- No Results Message -->
-        <div class="no-results" id="no-results" style="display: none;">
+        <div class="no-results" id="no-results" hidden>
           <h3>No businesses found</h3>
           <p>Try adjusting your search or filters to find what you're looking for.</p>
         </div>
@@ -136,7 +148,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section cta-wrapper">
       <div class="container">
         <div class="cta-section">
           <h2>Get Your Business Listed</h2>
@@ -153,10 +165,10 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-section">
-            <div class="logo" style="margin-bottom: var(--space-md);">
+            <div class="logo footer-logo">
               <div class="logo-icon">G</div>
               <div class="logo-text">
-                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-title">Gilbert</span>
                 <span class="logo-subtitle">Chamber of Commerce</span>
               </div>
             </div>
@@ -166,7 +178,7 @@
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul class="footer-links">
-              <li><a href="../index.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="discover.html">Discover Gilbert</a></li>
               <li><a href="directory.html">Business Directory</a></li>
               <li><a href="join.html">Membership</a></li>
@@ -186,7 +198,7 @@
           <div class="footer-section">
             <h4>Contact</h4>
             <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
-            <p style="margin-top: var(--space-sm);">
+            <p class="footer-contact">
               <a href="tel:+14809262626">(480) 926-2626</a><br>
               <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
             </p>
@@ -200,8 +212,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="scripts/main.js"></script>
-  <script src="scripts/directory.js"></script>
 </body>
 </html>

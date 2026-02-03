@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Discover Gilbert, Arizona - Learn about our rich agricultural heritage, vibrant community, and why we're one of America's best places to live.">
   <meta name="author" content="Timothy Whitehead">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Discover Gilbert | Gilbert Chamber of Commerce">
+  <meta property="og:description" content="Learn about Gilbert's rich agricultural heritage, vibrant community, and why we're one of America's best places to live.">
+  <meta property="og:image" content="https://timowhit.github.io/wdd231/chamber/images/og-image.jpg">
+  <meta property="og:url" content="https://timowhit.github.io/wdd231/chamber/discover.html">
+  <meta property="og:type" content="website">
+  
   <title>Discover Gilbert | Gilbert Chamber of Commerce</title>
   
   <!-- Fonts -->
@@ -18,12 +26,15 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+  
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
     <div class="header-container">
-      <a href="../index.html" class="logo">
+      <a href="index.html" class="logo">
         <div class="logo-icon">G</div>
         <div class="logo-text">
           <span class="logo-title">Gilbert</span>
@@ -72,21 +83,21 @@
             <p>The 1980s brought transformation as Gilbert evolved from a small farming community of 5,000 residents to one of America's fastest-growing towns. Today, our population exceeds 275,000, yet we've preserved the small-town charm that makes Gilbert special.</p>
           </div>
           <div class="two-col-image">
-            <img src="https://picsum.photos/seed/gilbert-history/600/500" alt="Historic downtown Gilbert with the iconic water tower" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);" loading="lazy">
+            <img src="https://picsum.photos/seed/gilbert-history/600/500" alt="Historic downtown Gilbert with the iconic water tower" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Timeline -->
-    <section class="section" style="background: var(--color-bg-alt);">
+    <section class="section section-alt">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">Through the Years</p>
           <h2>Gilbert Timeline</h2>
         </div>
         
-        <div class="timeline" style="max-width: 800px; margin: 0 auto;">
+        <div class="timeline">
           <div class="timeline-item">
             <span class="timeline-date">1902</span>
             <div class="timeline-content">
@@ -149,7 +160,7 @@
     <!-- Demographics Section -->
     <section class="section">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">By The Numbers</p>
           <h2>Gilbert Demographics</h2>
         </div>
@@ -173,51 +184,51 @@
           </div>
         </div>
 
-        <div class="demographics-grid" style="margin-top: var(--space-2xl);">
-          <div class="card" style="padding: var(--space-xl);">
-            <h3 style="margin-bottom: var(--space-md);">Education</h3>
-            <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">Gilbert residents are highly educated, with excellent schools driving continued growth.</p>
-            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-              <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
-                  <span style="font-size: 0.9rem;">Bachelor's Degree or Higher</span>
-                  <span style="font-weight: 600; color: var(--color-primary);">48%</span>
+        <div class="demographics-grid">
+          <div class="card demographics-card">
+            <h3>Education</h3>
+            <p class="demographics-card-intro">Gilbert residents are highly educated, with excellent schools driving continued growth.</p>
+            <div class="progress-bars">
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span class="progress-label">Bachelor's Degree or Higher</span>
+                  <span class="progress-value">48%</span>
                 </div>
-                <div style="height: 8px; background: var(--color-bg-alt); border-radius: 4px; overflow: hidden;">
-                  <div style="width: 48%; height: 100%; background: var(--color-primary);"></div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="48"></div>
                 </div>
               </div>
-              <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
-                  <span style="font-size: 0.9rem;">High School Graduate</span>
-                  <span style="font-weight: 600; color: var(--color-secondary);">96%</span>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span class="progress-label">High School Graduate</span>
+                  <span class="progress-value progress-value-secondary">96%</span>
                 </div>
-                <div style="height: 8px; background: var(--color-bg-alt); border-radius: 4px; overflow: hidden;">
-                  <div style="width: 96%; height: 100%; background: var(--color-secondary);"></div>
+                <div class="progress-bar">
+                  <div class="progress-fill progress-fill-secondary" data-width="96"></div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="card" style="padding: var(--space-xl);">
-            <h3 style="margin-bottom: var(--space-md);">Employment</h3>
-            <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">A diverse economy with strong sectors in healthcare, technology, and professional services.</p>
-            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-              <div style="display: flex; justify-content: space-between; padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border);">
+          <div class="card demographics-card">
+            <h3>Employment</h3>
+            <p class="demographics-card-intro">A diverse economy with strong sectors in healthcare, technology, and professional services.</p>
+            <div class="employment-list">
+              <div class="employment-item">
                 <span>Healthcare & Social Services</span>
-                <span style="font-weight: 600;">18%</span>
+                <span>18%</span>
               </div>
-              <div style="display: flex; justify-content: space-between; padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border);">
+              <div class="employment-item">
                 <span>Professional & Technical</span>
-                <span style="font-weight: 600;">15%</span>
+                <span>15%</span>
               </div>
-              <div style="display: flex; justify-content: space-between; padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border);">
+              <div class="employment-item">
                 <span>Retail Trade</span>
-                <span style="font-weight: 600;">12%</span>
+                <span>12%</span>
               </div>
-              <div style="display: flex; justify-content: space-between; padding: var(--space-sm) 0;">
+              <div class="employment-item">
                 <span>Finance & Insurance</span>
-                <span style="font-weight: 600;">10%</span>
+                <span>10%</span>
               </div>
             </div>
           </div>
@@ -226,9 +237,9 @@
     </section>
 
     <!-- Image Gallery -->
-    <section class="section" style="background: var(--color-bg-alt);">
+    <section class="section section-alt">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">See Gilbert</p>
           <h2>Photo Gallery</h2>
         </div>
@@ -273,7 +284,7 @@
     <!-- Current Events -->
     <section class="section">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">What's Happening</p>
           <h2>Current Events & Attractions</h2>
         </div>
@@ -310,7 +321,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section section-no-top-padding">
       <div class="container">
         <div class="cta-section">
           <h2>Be Part of Gilbert's Story</h2>
@@ -327,10 +338,10 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-section">
-            <div class="logo" style="margin-bottom: var(--space-md);">
+            <div class="logo footer-logo">
               <div class="logo-icon">G</div>
               <div class="logo-text">
-                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-title">Gilbert</span>
                 <span class="logo-subtitle">Chamber of Commerce</span>
               </div>
             </div>
@@ -360,7 +371,7 @@
           <div class="footer-section">
             <h4>Contact</h4>
             <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
-            <p style="margin-top: var(--space-sm);">
+            <p class="footer-contact">
               <a href="tel:+14809262626">(480) 926-2626</a><br>
               <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
             </p>
@@ -374,7 +385,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="scripts/main.js"></script>
 </body>
 </html>

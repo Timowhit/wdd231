@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Join the Gilbert Chamber of Commerce - Explore membership benefits and apply to become a member today.">
   <meta name="author" content="Timothy Whitehead">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Join the Chamber | Gilbert Chamber of Commerce">
+  <meta property="og:description" content="Become part of Gilbert's thriving business community. Explore membership benefits and apply today.">
+  <meta property="og:image" content="https://timowhit.github.io/wdd231/chamber/images/og-image.jpg">
+  <meta property="og:url" content="https://timowhit.github.io/wdd231/chamber/join.html">
+  <meta property="og:type" content="website">
+  
   <title>Join the Chamber | Gilbert Chamber of Commerce</title>
   
   <!-- Fonts -->
@@ -19,6 +27,10 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌵</text></svg>">
+  
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/join.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -64,52 +76,52 @@
     <!-- Benefits Section -->
     <section class="section">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">Why Join?</p>
           <h2>Membership Benefits</h2>
         </div>
         
         <div class="cards-grid">
-          <div class="card" style="padding: var(--space-xl);">
-            <div style="width: 60px; height: 60px; background: var(--color-primary-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+          <div class="card benefit-card">
+            <div class="benefit-icon benefit-icon-primary">
               <svg width="28" height="28" fill="none" stroke="var(--color-primary)" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </div>
-            <h3 style="margin-bottom: var(--space-sm);">Networking</h3>
-            <p style="color: var(--color-text-muted);">Connect with 500+ local businesses at exclusive events, workshops, and luncheons designed to foster meaningful relationships.</p>
+            <h3>Networking</h3>
+            <p class="benefit-text">Connect with 500+ local businesses at exclusive events, workshops, and luncheons designed to foster meaningful relationships.</p>
           </div>
           
-          <div class="card" style="padding: var(--space-xl);">
-            <div style="width: 60px; height: 60px; background: var(--color-secondary-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+          <div class="card benefit-card">
+            <div class="benefit-icon benefit-icon-secondary">
               <svg width="28" height="28" fill="none" stroke="var(--color-secondary)" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M12 20V10M18 20V4M6 20v-4"/>
               </svg>
             </div>
-            <h3 style="margin-bottom: var(--space-sm);">Visibility</h3>
-            <p style="color: var(--color-text-muted);">Get featured in our business directory, social media, newsletter, and promotional materials reaching thousands of potential customers.</p>
+            <h3>Visibility</h3>
+            <p class="benefit-text">Get featured in our business directory, social media, newsletter, and promotional materials reaching thousands of potential customers.</p>
           </div>
           
-          <div class="card" style="padding: var(--space-xl);">
-            <div style="width: 60px; height: 60px; background: var(--color-accent-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md);">
+          <div class="card benefit-card">
+            <div class="benefit-icon benefit-icon-accent">
               <svg width="28" height="28" fill="none" stroke="var(--color-accent)" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
               </svg>
             </div>
-            <h3 style="margin-bottom: var(--space-sm);">Resources</h3>
-            <p style="color: var(--color-text-muted);">Access business workshops, marketing tools, industry reports, and educational programs to help your business grow.</p>
+            <h3>Resources</h3>
+            <p class="benefit-text">Access business workshops, marketing tools, industry reports, and educational programs to help your business grow.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Membership Tiers Section -->
-    <section class="section" style="background: var(--color-bg-alt);">
+    <section class="section section-alt">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">Choose Your Level</p>
           <h2>Membership Tiers</h2>
         </div>
@@ -169,7 +181,7 @@
     <!-- Application Form Section -->
     <section class="section" id="application-form">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">Get Started</p>
           <h2>Membership Application</h2>
         </div>
@@ -182,8 +194,8 @@
               <legend>Applicant Information</legend>
               
               <div class="form-row">
-                <label class="form-group">
-                  <span class="form-label required">First Name</span>
+                <div class="form-group">
+                  <label for="first-name" class="form-label required">First Name</label>
                   <input 
                     type="text" 
                     name="first-name" 
@@ -193,10 +205,10 @@
                     required
                     class="form-input"
                   >
-                </label>
+                </div>
                 
-                <label class="form-group">
-                  <span class="form-label required">Last Name</span>
+                <div class="form-group">
+                  <label for="last-name" class="form-label required">Last Name</label>
                   <input 
                     type="text" 
                     name="last-name" 
@@ -206,12 +218,12 @@
                     required
                     class="form-input"
                   >
-                </label>
+                </div>
               </div>
               
               <div class="form-row">
-                <label class="form-group">
-                  <span class="form-label">Organizational Title</span>
+                <div class="form-group">
+                  <label for="org-title" class="form-label">Organizational Title</label>
                   <input 
                     type="text" 
                     name="org-title" 
@@ -223,44 +235,44 @@
                     placeholder="e.g., Marketing Director"
                   >
                   <span class="form-hint">Minimum 7 characters, letters, hyphens, and spaces only</span>
-                </label>
+                </div>
                 
-                <label class="form-group">
-                  <span class="form-label required">Email Address</span>
+                <div class="form-group">
+                  <label for="email" class="form-label required">Email Address</label>
                   <input 
                     type="email" 
                     name="email" 
                     id="email"
-                    title="Enter your email address"
+                    title="Enter your email address in the format name@example.com"
                     autocomplete="email"
                     required
                     class="form-input"
-                    placeholder="example@business.com"
+                    placeholder="name@example.com"
                   >
-                </label>
+                </div>
               </div>
               
-              <label class="form-group">
-                <span class="form-label required">Mobile Phone</span>
+              <div class="form-group">
+                <label for="phone" class="form-label required">Mobile Phone</label>
                 <input 
                   type="tel" 
                   name="phone" 
                   id="phone"
-                  title="Enter your mobile phone number"
+                  title="Enter your mobile phone number in the format (480) 555-0123"
                   autocomplete="tel"
                   required
                   class="form-input"
                   placeholder="(480) 555-0123"
                 >
-              </label>
+              </div>
             </fieldset>
             
             <!-- Business Information -->
             <fieldset>
               <legend>Business Information</legend>
               
-              <label class="form-group">
-                <span class="form-label required">Business/Organization Name</span>
+              <div class="form-group">
+                <label for="org-name" class="form-label required">Business/Organization Name</label>
                 <input 
                   type="text" 
                   name="org-name" 
@@ -270,20 +282,20 @@
                   required
                   class="form-input"
                 >
-              </label>
+              </div>
               
-              <label class="form-group">
-                <span class="form-label">Business Description</span>
+              <div class="form-group">
+                <label for="description" class="form-label">Business Description</label>
                 <textarea 
                   name="description" 
                   id="description"
-                  title="Provide a brief description of your business"
+                  title="Provide a brief description of your business (maximum 200 characters)"
                   class="form-textarea"
                   placeholder="Tell us about your business (max 200 characters)"
                   maxlength="200"
                 ></textarea>
                 <span class="form-hint" id="char-count">0/200 characters</span>
-              </label>
+              </div>
             </fieldset>
             
             <!-- Membership Level -->
@@ -292,7 +304,7 @@
               
               <div class="membership-options">
                 <label class="membership-option">
-                  <input type="radio" name="membership" value="np" required>
+                  <input type="radio" name="membership" value="np" id="membership-np" required>
                   <span class="option-content">
                     <span class="option-title">NP Membership</span>
                     <span class="option-desc">For nonprofit organizations - No fee</span>
@@ -300,7 +312,7 @@
                 </label>
                 
                 <label class="membership-option">
-                  <input type="radio" name="membership" value="bronze">
+                  <input type="radio" name="membership" value="bronze" id="membership-bronze">
                   <span class="option-content">
                     <span class="option-title">Bronze Membership</span>
                     <span class="option-desc">Essential benefits - $99/year</span>
@@ -308,7 +320,7 @@
                 </label>
                 
                 <label class="membership-option">
-                  <input type="radio" name="membership" value="silver">
+                  <input type="radio" name="membership" value="silver" id="membership-silver">
                   <span class="option-content">
                     <span class="option-title">Silver Membership</span>
                     <span class="option-desc">Enhanced visibility - $299/year</span>
@@ -316,7 +328,7 @@
                 </label>
                 
                 <label class="membership-option">
-                  <input type="radio" name="membership" value="gold">
+                  <input type="radio" name="membership" value="gold" id="membership-gold">
                   <span class="option-content">
                     <span class="option-title">Gold Membership</span>
                     <span class="option-desc">Premium benefits - $599/year</span>
@@ -326,11 +338,11 @@
             </fieldset>
             
             <!-- Hidden Timestamp -->
-            <input type="hidden" name="timestamp" id="timestamp">
+            <input type="hidden" name="timestamp" id="timestamp" value="">
             
             <!-- Submit Button -->
             <div class="form-actions">
-              <input type="submit" value="Submit Application" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary">Submit Application</button>
             </div>
           </form>
           
@@ -365,37 +377,37 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section" style="background: var(--color-bg-alt);">
+    <section class="section section-alt">
       <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header section-header-center">
           <p class="text-accent">Questions?</p>
           <h2>Frequently Asked Questions</h2>
         </div>
         
-        <div style="max-width: 800px; margin: 0 auto;">
-          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
-            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">How long does the membership last?</summary>
-            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">All membership levels are annual subscriptions. Your membership begins on the date your application is approved and runs for 12 months. We'll send renewal reminders 30 days before expiration.</p>
+        <div class="faq-container">
+          <details class="card faq-item">
+            <summary class="faq-summary">How long does the membership last?</summary>
+            <p class="faq-answer">All membership levels are annual subscriptions. Your membership begins on the date your application is approved and runs for 12 months. We'll send renewal reminders 30 days before expiration.</p>
           </details>
           
-          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
-            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">Can I upgrade my membership later?</summary>
-            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">Absolutely! You can upgrade your membership at any time. When you upgrade, you'll pay the prorated difference for the remainder of your membership term and immediately receive all the benefits of your new level.</p>
+          <details class="card faq-item">
+            <summary class="faq-summary">Can I upgrade my membership later?</summary>
+            <p class="faq-answer">Absolutely! You can upgrade your membership at any time. When you upgrade, you'll pay the prorated difference for the remainder of your membership term and immediately receive all the benefits of your new level.</p>
           </details>
           
-          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
-            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">What payment methods do you accept?</summary>
-            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">We accept all major credit cards, checks, and ACH bank transfers. For Gold members, we also offer quarterly payment plans at no additional cost.</p>
+          <details class="card faq-item">
+            <summary class="faq-summary">What payment methods do you accept?</summary>
+            <p class="faq-answer">We accept all major credit cards, checks, and ACH bank transfers. For Gold members, we also offer quarterly payment plans at no additional cost.</p>
           </details>
           
-          <details class="card" style="padding: var(--space-lg); margin-bottom: var(--space-md);">
-            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">Do I need to have a physical location in Gilbert?</summary>
-            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">While we primarily serve Gilbert-based businesses, we welcome businesses from the greater East Valley area that serve Gilbert residents. Home-based businesses are also welcome!</p>
+          <details class="card faq-item">
+            <summary class="faq-summary">Do I need to have a physical location in Gilbert?</summary>
+            <p class="faq-answer">While we primarily serve Gilbert-based businesses, we welcome businesses from the greater East Valley area that serve Gilbert residents. Home-based businesses are also welcome!</p>
           </details>
           
-          <details class="card" style="padding: var(--space-lg);">
-            <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">How do I get my business featured in the spotlight?</summary>
-            <p style="margin-top: var(--space-md); color: var(--color-text-muted);">Silver and Gold members are automatically considered for our member spotlight features. Gold members receive guaranteed monthly spotlights, while Silver members are featured quarterly. Contact our team to schedule your feature!</p>
+          <details class="card faq-item">
+            <summary class="faq-summary">How do I get my business featured in the spotlight?</summary>
+            <p class="faq-answer">Silver and Gold members are automatically considered for our member spotlight features. Gold members receive guaranteed monthly spotlights, while Silver members are featured quarterly. Contact our team to schedule your feature!</p>
           </details>
         </div>
       </div>
@@ -509,10 +521,10 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-section">
-            <div class="logo" style="margin-bottom: var(--space-md);">
+            <div class="logo footer-logo">
               <div class="logo-icon">G</div>
               <div class="logo-text">
-                <span class="logo-title" style="color: var(--color-bg);">Gilbert</span>
+                <span class="logo-title">Gilbert</span>
                 <span class="logo-subtitle">Chamber of Commerce</span>
               </div>
             </div>
@@ -542,7 +554,7 @@
           <div class="footer-section">
             <h4>Contact</h4>
             <p>119 N Gilbert Rd, Suite 101<br>Gilbert, AZ 85234</p>
-            <p style="margin-top: var(--space-sm);">
+            <p class="footer-contact">
               <a href="tel:+14809262626">(480) 926-2626</a><br>
               <a href="mailto:info@gilbertchamber.com">info@gilbertchamber.com</a>
             </p>
@@ -556,8 +568,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="scripts/main.js"></script>
-  <script src="scripts/join.js"></script>
 </body>
 </html>
