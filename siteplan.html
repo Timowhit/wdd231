@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Project Site Plan – Magna Steyr Mesa Dashboard</title>
+  <style>
+    /* your existing :root variables + styles – keep them! */
+    body { font-family: Arial, sans-serif; color: white; background: #212529; }
+    h1, h2 { color: #2e73c7; } /* or your accent */
+    section { margin: 2rem 0; padding: 1rem; border: 1px solid #444; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Site Plan: Magna Steyr Mesa Production Dashboard</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Site Name</h2>
+      <p><strong>Mesa Production Dashboard</strong> (or WAML Dashboard)</p>
+      <p>Reason: Clearly identifies the location (Mesa, AZ facility) and primary function (production monitoring). Short and memorable for internal use.</p>
+    </section>
+
+    <section>
+      <h2>2. Site Purpose</h2>
+      <p>This internal web application provides real-time visibility into automotive production lines at the Magna Steyr Mesa facility. It displays current vehicle status, cycle times, overcycle alerts, First Time Complete percentage, and key performance indicators to help supervisors and managers quickly identify bottlenecks and maintain throughput targets.</p>
+    </section>
+
+    <section>
+      <h2>3. Scenarios</h2>
+      <ul>
+        <li>As a line supervisor, I want to see which vehicle is currently on each line and how long it has been there so I can spot overcycle situations immediately.</li>
+        <li>As a plant manager, I want to view the overall FTC percentage and total overcycle time to assess shift performance at a glance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Color Scheme</h2>
+      <ul>
+        <li>--lime (#a6b84b) → Good / on-time status, success</li>
+        <li>--red (#d72828) → Overcycle / warning / bad status</li>
+        <li>--amber (#e48c2a) → Attention / current vehicle highlight</li>
+        <li>#212529 dark gray → Main background</li>
+        <li>#2e73c7 blue → Accents, headers (if used)</li>
+      </ul>
+      <p>These colors are already applied throughout this plan document.</p>
+    </section>
+
+    <section>
+      <h2>5. Typography</h2>
+      <p>Primary font: Arial, sans-serif (system default, highly readable in industrial environments)</p>
+      <ul>
+        <li>Headings / line labels: bold, larger sizes (clamp-based)</li>
+        <li>Body / cell content: normal weight, 1.5vw+</li>
+        <li>KPIs: very large & bold for at-a-glance reading</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Wireframe – Home Page</h2>
+      <h3>Desktop / Large Viewport</h3>
+      <p>(Your current dashboard layout already serves as a detailed wireframe — you can keep a simplified/screenshot version here or describe it.)</p>
+
+      <h3>Mobile View</h3>
+      <p>Missing → add a simple stacked layout description or basic CSS media-query mockup:</p>
+      <ul>
+        <li>Single column: one line at a time</li>
+        <li>Current car enlarged at top</li>
+        <li>History scrolls vertically</li>
+        <li>KPIs in 2×2 grid or stacked</li>
+      </ul>
+      <!-- Add simple boxes / ASCII art or a second <div class="lines-grid"> with media query -->
+    </section>
+  </main>
+
+</body>
+</html>

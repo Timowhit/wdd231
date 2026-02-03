@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Magna Steyr Mesa Dashboard Wireframe" />
+    <meta name="author" content="Timothy A. Whitehead" />
+    <title>Magna Steyr Mesa - Dashboard Wireframe</title>
+    <style>
+       
+        body, html, form {
+            height: 100%;               
+            margin: 0;                  
+            padding: 0;                 
+            background-color: #212529;  
+            color: white;               
+            font-family: Arial, sans-serif;
+            overflow: auto;           
+        }
+        body::-webkit-scrollbar, html::-webkit-scrollbar, form::-webkit-scrollbar {
+            width: 0px;                
+        }
+
+        .bg-surface { background-color: #212529 !important; } 
+        .bg-dark { background-color: #212529 !important; }    
+        .bg-black { background-color: #000000 !important; }  
+        .bg-accent { background-color: #2e73c7 !important; }   
+        .bg-darkblue { background-color: #2e73c7 !important; }
+
+        header {
+            height: 7vh;
+            background-color: #000000 !important;
+            box-shadow: 0vw 0.5vh 1.2vh 1px var(--shadow);
+            border-bottom: 0.2vh solid var(--red);
+        }
+
+        header .header-left,
+        header .header-center,
+        header .header-right {
+            display: flex;     
+            align-items: center;
+            font-size: 4vh;
+        }
+
+       
+        header .header-left {
+            font-weight: bold;     
+            color: white;   
+            white-space: nowrap;    
+        }
+
+        header .header-center {
+            justify-content: center;
+            color: white;
+        }
+
+        .header-logo {
+            height: 6vh; 
+            width: auto;        
+        }
+
+
+        .dashboard-content {
+            overflow: hidden;     
+            flex: 1;               
+            min-height: 0;           
+        }
+
+        .display-4 {
+            font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+            font-weight: 600;      
+        }
+
+        .display-5 {
+            font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+            font-weight: 600;  
+        }
+
+        .fw-bold { font-weight: bold !important; }     
+        .text-black { color: #333 !important; }         
+        .text-center { text-align: center; }            
+        .text-end { text-align: right; }      
+
+        .d-flex { display: flex !important; }        
+        .flex-column { flex-direction: column !important; } 
+        .flex-grow-1 {                                 
+            flex-grow: 1 !important;
+            max-height: 3000px;        
+        }
+        .vh-100 { height: 100vh !important; }          
+        .h-100 { height: 100% !important; }   
+
+        
+        .row {
+            margin-right: 0 !important; 
+            margin-left: 0 !important;
+        }
+
+        .container-fluid {
+            overflow-x: hidden;       
+        }
+
+        .col, .col-12 {
+            flex: 1 0 0%;              
+            padding-right: 0.5rem;      
+            padding-left: 0.5rem;      
+        }
+
+        .col-12 {
+            flex: 0 0 100%;            
+            max-width: 100%;            
+        }
+
+        h1 {font-size: 2.8vh;}
+        
+        .gap { height: 1vh; }
+        .g-2 { gap: clamp(0.25rem, 0.5vw, 0.5rem); }   
+        .p-1 { padding: 1vh !important; } 
+        .p-2 { padding: 1vh !important; }
+        .py-2 {                                         
+            padding-top: clamp(0.5rem, 1vw, 1rem) !important;
+            padding-bottom: clamp(0.5rem, 1vw, 1rem) !important;
+        }
+        .px-3 {                                         
+            padding-left: clamp(0.75rem, 1.5vw, 1.5rem) !important;
+            padding-right: clamp(0.75rem, 1.5vw, 1.5rem) !important;
+        }
+        .mt-2 { margin-top: clamp(0.5rem, 1vw, 1rem) !important; }  
+        .mb-2 { margin-bottom: clamp(0.5rem, 1vw, 1rem) !important; } 
+        .mb-0 { margin-bottom: 0 !important; }      
+
+        
+        .align-items-center { align-items: center !important; }         
+        .justify-content-center { justify-content: center !important; }   
+        .justify-content-between { justify-content: space-between !important; } 
+
+        .card {   
+            border-radius: 1vw;       
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: clamp(0.4rem, 0.8vh, 0.8rem) clamp(0.75rem, 1.5vw, 1.5rem); 
+            height:15%;
+        }
+
+        .card-body {
+            padding: clamp(0.5rem, 1vw, 1rem); 
+            height: 60%;
+        }
+
+        
+        .table {
+            width: 100%; 
+            height: 100%; 
+            table-layout: fixed;
+            margin-bottom: 0; 
+            border-collapse: collapse; 
+        }
+                       
+        .tv-grid th,
+        .tv-grid td {
+            font-size: clamp(2.2rem, 2.5vw, 3.5rem);
+            font-weight: 800;
+            padding: 1.8rem 1.2rem;
+            line-height: 1.1;
+        }
+
+        .tv-grid tbody tr {
+           height: 12vh;
+        }
+
+        .tv-grid thead th {
+        font-size: clamp(3.6rem, 4vw, 5rem);
+        letter-spacing: 0.1vw;
+        height: 8vh;
+         }
+
+
+        .table thead th {
+            background-color: #000000; 
+            color: white;              
+            font-weight: bold;         
+            border-color: #666;       
+            height: clamp(2.5rem, 4vh, 4rem); 
+        }
+
+        
+        .table tbody tr {
+            height: 10vh;
+        }
+
+
+        .table tbody tr.empty-row {
+            opacity: 0.5;              
+        }
+
+        .table tbody tr:hover {
+            background-color: #2a2e32; 
+        }
+
+        
+        .table tbody tr.on-time {
+            background-color: #1a5928 !important;
+        }
+
+        .table tbody tr.warning {
+            background-color: #8b6914 !important;
+        }
+
+        .table tbody tr.Overcycle {
+            background-color: #ff1a1a !important;
+        }
+
+        .card-body .d-flex .justify-content-center .align-items-center {
+            height: fit-content; 
+        }
+
+        .good { background-color: var(--green) !important; }
+        .bad { background-color: var(--red) !important; }
+
+        /* Scrollbar styles for gridview container */
+        .gridview-container {
+            overflow-y: auto;         
+            overflow-x: hidden;        
+            height: 100%;             
+            position: relative;
+            background: var(--bg-page);
+            padding: .75rem;
+            border: 0.1vw solid var(--glass);
+            border-radius: 1vw;
+        }
+       
+        .gridview-container::-webkit-scrollbar {
+            width: 0px;            
+        }
+
+        /* Root colors tuned to your screenshot */
+        :root{
+        --bg-page: #3f4040;
+        --bg-card: #2b2b2b;
+        --bg-header: #1f1f1f;
+        --text: #fff;
+        --glass: #ffffff22;
+        --shadow:#141313;
+        --yellow: #FDBF02;  /* yellow top */
+        --red: #FF0000;     /* red rows */
+        --green: #008000;    /* green rows */
+        }
+
+        /* 4 equal columns, responsive down to 2/1 columns */
+        .lines-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5vh 0.5vw;               /* spacing between columns */
+        border: 0.1vw solid var(--glass);     /* outer frame */
+        border-radius: 2vh;
+        background: #2f2f2f;
+        box-shadow: inset 0.3vh 0.4vh 2px 1px var(--shadow);
+        padding: 1vh;
+        }
+
+        @media (max-width: 1700px){
+        .lines-grid{ grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 1300px){
+        .lines-grid{ grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 870px){
+        .lines-grid{ grid-template-columns: 1fr; }
+        }
+
+        /* Each “line” column */
+        .line-col{
+        display: grid;
+        gap: 0.1vh;
+        }
+
+        /* Column header */
+        .line-header{
+        background: var(--bg-header);
+        text-align: center;
+        padding: .6rem .4rem;
+        letter-spacing: 0.1vw;
+        border-radius: 1vh;
+        z-index: 10;
+        }
+
+        /* Base cell */
+        .cell{
+        position: relative;
+        display: grid;
+        place-items: center;
+        height: 8vh;
+        font-weight: 700;
+        font-size: 1.5vw;
+        text-align: center;
+        box-shadow: inset 0.3vh 0.4vh 2px 1px var(--shadow);
+        border-radius: 1vh;
+        margin: 0.25vh 0.5vw;
+        }
+
+        /* Top combined cell with side/right time bar */
+        .cell-top{
+            grid-template-columns: 1fr 2vh; /* big area + right time */
+            align-items: stretch;
+            height: 17vh;
+            font-size: 4.5vh;
+            border: 0.1vw solid var(--glass);
+            box-shadow: 0.3vw 0.5vh 1.2vh 1px var(--shadow);
+            z-index: 5;
+        }
+        .cell-top .cell-main{
+        display: grid;
+        place-items: center;
+        }
+        /* Row ages on non-top cells (right rail look) */
+        .cell .age{
+        position: absolute;
+        right: 0.3vw;
+        font-weight: 600;
+        color: #111;
+        background: #ffffff55;
+        padding: 2px 6px;
+        border-radius: 1vh;
+        font-size: 3.5vh;
+        box-shadow: 0.2vh 0.3vh 1vh -0.5vh var(--shadow);
+        }
+
+        /* Color helpers */
+        .bg-yellow{ background: var(--yellow); color: #111; }
+        .bg-red{ background: var(--red); color: #111; }
+        .bg-green{ background: var(--green); color: #111; }
+
+        /* KPI footer row */
+        .kpi-row{
+            padding: 0.5vh;
+            margin: 1vh 4vw;
+            border: 0.1vw solid var(--glass);
+            border-radius: 2vh;
+            background: #2b2b2b;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .kpi-head{
+        background: var(--bg-header);
+        color: #fff;
+        font-weight: 700;
+        font-size: 2.6vh;
+        text-align: center;
+        padding: .4rem .25rem;
+        margin: 0.5vh 1.5vw;
+        border-bottom: 0.2vh solid var(--red);
+        border-radius: 2vh;
+        }
+
+        .kpi-val{
+            background: var(--bg-page);
+            text-align: center;
+            font-weight: 800;
+            font-size: 8vh;
+            margin: 0.1vh 1.2vw;
+            margin-bottom: 1vh;
+            box-shadow: 0.3vh 0.5vh 4px 3px var(--bg-header);
+            border: 0.1vw solid var(--glass);
+            border-radius: 1vw;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1vh;
+        }
+
+        #currentYear {
+            font-size: 1.5vh;
+            color: var(--glass);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-black text-white py-2 px-3 d-flex align-items-center justify-content-between shadow">
+        
+        <div class="header-left fw-bold display-4">WAML1 Dashboard</div>        
+       
+        <div class="header-center display-4 text-center flex-grow-1">
+            <span id="lblTime"></span>
+        </div>
+                
+        <div class="header-right text-end">
+            <img src="images/Magnalog.png" alt="Magna Steyr Logo" class="header-logo" />
+        </div>
+    </header>
+
+    <main class="dashboard-content container-fluid d-flex flex-column p-2">
+        <!-- ====================================== -->
+        <!-- DATA GRID SECTION                      -->
+        <!-- ====================================== -->
+        <div class="grid-section flex-grow-1" style="position: relative;">
+            <div class="card shadow-lg d-flex flex-column bg-dark h-100">
+                <div class="card-body p-1 gridview-container">
+                    <!-- ========================================= -->
+                    <!-- GRID SECTION                              -->
+                    <!-- ========================================= -->
+                    <div class="lines-grid">
+
+                        <!-- Column 1 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>WAPBV-0-001</h1>
+                        </header>
+
+                        <!-- Column 1 Current Car -->
+                        <div class="cell cell-top bg-yellow">
+                            <div class="cell-main">CAR14398 <span class="age">44m</span></div>
+                        </div>
+
+                        <!-- Gap -->
+                        <span class="gap"></span>
+
+                        <!-- Column 1 Past Cars -->
+                        <div class="cell bg-red">CAR14397 <span class="age">68m</span></div>
+                        <div class="cell bg-green">CAR14396 <span class="age">41m</span></div>
+                        <div class="cell bg-red">CAR14395 <span class="age">51m</span></div>
+                        <div class="cell bg-green">CAR14394 <span class="age">45m</span></div>
+                        </section>
+
+                        <!-- Column 2 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>WAML1-0-001</h1>
+                        </header>
+
+                        <!-- Column 2 Current Car -->
+                        <div class="cell cell-top bg-yellow">
+                            <div class="cell-main">CAR14397<span class="age">42m</span></div>
+                        </div>
+                        
+                        <!-- Gap -->
+                        <span class="gap"></span>
+                        
+                        <!-- Column 2 Past Cars -->
+                        <div class="cell bg-green">CAR14396 <span class="age">40m</span></div>
+                        <div class="cell bg-green">CAR14395 <span class="age">44m</span></div>
+                        <div class="cell bg-red">CAR14394 <span class="age">46m</span></div>
+                        <div class="cell bg-green">CAR14393 <span class="age">43m</span></div>
+                        </section>
+
+                        <!-- Column 3 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>WAML1-0-002</h1>
+                        </header>
+                        
+                        <!-- Column 3 Current Car -->
+                        <div class="cell cell-top bg-transparent">
+                            <div class="cell-main">CAR14396<span class="age">38m</span></div>
+                        </div>
+                        
+                        <!-- Gap -->
+                        <span class="gap"></span>
+                        
+                        <!-- Column 3 Past Cars -->
+                        <div class="cell bg-green">CAR14395 <span class="age">45m</span></div>
+                        <div class="cell bg-red">CAR14394 <span class="age">48m</span></div>
+                        <div class="cell bg-red">CAR14393 <span class="age">80m</span></div>
+                        <div class="cell bg-red">CAR14392 <span class="age">51m</span></div>
+                        </section>
+
+                        <!-- Column 4 Header -->
+                        <section class="line-col">
+                        <header class="line-header">
+                            <h1>WAML1-0-003</h1>
+                        </header>
+
+                        <!-- Column 4 Current Car -->
+                        <div class="cell cell-top bg-transparent">
+                            <div class="cell-main">CAR14395<span class="age">40m</span></div>
+                        </div>
+
+                        <!-- Gap -->
+                        <span class="gap"></span>
+
+                        <!-- Column 4 Past Cars -->
+                        <div class="cell bg-green">CAR14394 <span class="age">40m</span></div>
+                        <div class="cell bg-green">CAR14393 <span class="age">42m</span></div>
+                        <div class="cell bg-green">CAR14392 <span class="age">43m</span></div>
+                        <div class="cell bg-green">CAR14391 <span class="age">43m</span></div>
+                        </section>
+                    </div>
+                </div>
+                <!-- ========================================= -->
+                <!-- KPI SECTION                               -->
+                <!-- ========================================= -->
+                <div class="kpi-row">
+                    <!-- KPI Header 1 -->
+                    <div class="kpi-head">Target</div>
+                    <!-- KPI Header 2 -->
+                    <div class="kpi-head">Actual</div>
+                    <!-- KPI Header 3 -->
+                    <div class="kpi-head">FTC</div>
+                    <!-- KPI Header 4 -->
+                    <div class="kpi-head">Overcycle</div>
+
+
+                    <!-- KPI Value 1 -->
+                    <div id="kpi1" class="kpi-val">10</div>
+                    <!-- KPI Value 2 -->
+                    <div id="kpi2" class="kpi-val">5</div>
+                    <!-- KPI Value 3 -->
+                    <div id="kpi3" class="kpi-val">87%</div>
+                    <!-- KPI Value 4 -->
+                    <div id="kpi4" class="kpi-val">84m</div>
+                </div>
+            </div>
+        </div>
+        <!-- ========================================= -->
+        <!-- FOOTER SECTION                            -->
+        <!-- ========================================= -->
+        <!--
+        <footer>
+            <p id="currentYear" class="muted"></p>
+        </footer> 
+        -->
+    </main>
+<script>
+    
+    // ==================== CLOCK ====================
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-US', { hour12: false });
+        document.getElementById('lblTime').innerText = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+    
+    // ========== Set dynamic year in footer =========
+    // document.getElementById('currentYear').textContent = `© ${new Date().getFullYear()} Magna Steyr Mesa. All rights reserved.`;
+
+    // Identify if configured dark mode preference and set theme accordingly
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // Helper to parse numbers from text (handles %, commas, 'm', etc.)
+    function toNumber(text) {
+        if (text == null) return NaN;
+        const cleaned = String(text).replace(/[^0-9.-]/g, ''); // keep digits, dot, minus
+        return cleaned ? parseFloat(cleaned) : NaN;
+    }
+
+    // Dynamic KPI colors set via JavaScript
+    function updateKPIColors() {
+        const kpi1Element = document.getElementById('kpi1');
+        const kpi2Element = document.getElementById('kpi2');
+        const kpi3Element = document.getElementById('kpi3');
+        const kpi4Element = document.getElementById('kpi4');
+
+        // Ensure all elements exist
+        if (!kpi1Element || !kpi2Element || !kpi3Element || !kpi4Element) {
+            console.warn('One or more KPI elements not found.');
+            return;
+        }
+
+        // Clear prior state
+        [kpi1Element, kpi2Element, kpi3Element, kpi4Element]
+        .forEach(el => el.classList.remove('good', 'bad'));
+
+        // Parse values (handles %, commas, and 'm', etc.)
+        const kpi1 = toNumber(kpi1Element.textContent);
+        const kpi2 = toNumber(kpi2Element.textContent);
+        const kpi3 = toNumber(kpi3Element.textContent);
+        const kpi4 = toNumber(kpi4Element.textContent);
+
+        if ([kpi1, kpi2, kpi3, kpi4].some(Number.isNaN)) {
+            console.warn('Invalid KPI number detected', { kpi1, kpi2, kpi3, kpi4 });
+            return;
+        }
+
+        // KPI2: good if kpi2 <= kpi1
+        kpi2Element.classList.add(kpi1 <= kpi2 ? 'good' : 'bad');
+
+        // KPI3: good if >= 85
+        kpi3Element.classList.add(kpi3 >= 85 ? 'good' : 'bad');
+
+        // KPI4: good if <= 80
+        kpi4Element.classList.add(kpi4 <= 80 ? 'good' : 'bad');
+    }
+
+    // Run once the DOM is ready
+    document.addEventListener('DOMContentLoaded', updateKPIColors);
+
+</script>
+</body>
+</html>
