@@ -7,7 +7,7 @@
     "phone": "(480) 555-0101",
     "website": "https://gilberttech.example.com",
     "membership": "gold",
-    "image": "images/businesses/tech-solutions.jpg",
+    "image": "images/businesses/tech-solutions.webp",
     "joinDate": "2021-03-15"
   },
   {
@@ -18,7 +18,7 @@
     "phone": "(480) 555-0202",
     "website": "https://desertbloom.example.com",
     "membership": "silver",
-    "image": "images/businesses/desert-bloom.jpg",
+    "image": "images/businesses/desert-bloom.webp",
     "joinDate": "2020-06-20"
   },
   {
@@ -29,7 +29,7 @@
     "phone": "(480) 555-0303",
     "website": "https://gilbertdental.example.com",
     "membership": "gold",
-    "image": "images/businesses/family-dental.jpg",
+    "image": "images/businesses/family-dental.webp",
     "joinDate": "2019-01-10"
   },
   {
@@ -40,7 +40,7 @@
     "phone": "(480) 555-0404",
     "website": "https://agaveaccounting.example.com",
     "membership": "silver",
-    "image": "images/businesses/agave-accounting.jpg",
+    "image": "images/businesses/agave-accounting.webp",
     "joinDate": "2022-02-28"
   },
   {
@@ -51,7 +51,7 @@
     "phone": "(480) 555-0505",
     "website": "https://sunrisecoffee.example.com",
     "membership": "bronze",
-    "image": "images/businesses/sunrise-coffee.jpg",
+    "image": "images/businesses/sunrise-coffee.webp",
     "joinDate": "2023-05-12"
   },
   {
@@ -62,7 +62,7 @@
     "phone": "(480) 555-0606",
     "website": "https://gilbertfoundation.example.org",
     "membership": "nonprofit",
-    "image": "images/businesses/community-foundation.jpg",
+    "image": "images/businesses/community-foundation.webp",
     "joinDate": "2018-09-01"
   },
   {
@@ -73,7 +73,7 @@
     "phone": "(480) 555-0707",
     "website": "https://mesarealestate.example.com",
     "membership": "gold",
-    "image": "images/businesses/mesa-realestate.jpg",
+    "image": "images/businesses/mesa-realestate.webp",
     "joinDate": "2020-11-05"
   },
   {
@@ -84,29 +84,7 @@
     "phone": "(480) 555-0808",
     "website": "https://southwestauto.example.com",
     "membership": "silver",
-    "image": "images/businesses/southwest-auto.jpg",
+    "image": "images/businesses/southwest-auto.webp",
     "joinDate": "2021-07-22"
-  },
-  {
-    "name": "Harmony Yoga Studio",
-    "category": "Health & Wellness",
-    "description": "Offering yoga classes for all levels, meditation workshops, and wellness programs in a peaceful studio setting.",
-    "address": "345 Zen Circle, Gilbert, AZ 85233",
-    "phone": "(480) 555-0909",
-    "website": "https://harmonyyoga.example.com",
-    "membership": "bronze",
-    "image": "images/businesses/harmony-yoga.jpg",
-    "joinDate": "2022-09-18"
-  },
-  {
-    "name": "Gilbert Arts Council",
-    "category": "Nonprofit",
-    "description": "Promoting arts and culture in Gilbert through exhibitions, performances, and educational programs for all ages.",
-    "address": "500 Arts Boulevard, Gilbert, AZ 85234",
-    "phone": "(480) 555-1010",
-    "website": "https://gilbertarts.example.org",
-    "membership": "nonprofit",
-    "image": "images/businesses/gilbert-arts.jpg",
-    "joinDate": "2017-04-15"
   }
 ]

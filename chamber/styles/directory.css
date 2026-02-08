@@ -119,3 +119,115 @@
     max-width: 400px;
   }
 }
+
+/* ===== BUSINESS GRID WITH NAMED GRID AREAS ===== */
+/* Mobile Layout - Single Column */
+.business-grid {
+  display: grid;
+  grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
+  gap: var(--space-lg);
+}
+
+/* Assign grid areas to each card */
+.business-card:nth-child(1) { grid-area: card1; }
+.business-card:nth-child(2) { grid-area: card2; }
+.business-card:nth-child(3) { grid-area: card3; }
+.business-card:nth-child(4) { grid-area: card4; }
+.business-card:nth-child(5) { grid-area: card5; }
+.business-card:nth-child(6) { grid-area: card6; }
+.business-card:nth-child(7) { grid-area: card7; }
+.business-card:nth-child(8) { grid-area: card8; }
+
+/* Tablet Layout - Two Columns */
+@media (min-width: 768px) {
+  .business-grid {
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+    gap: var(--space-lg);
+  }
+}
+
+/* Desktop Layout - Three Columns */
+@media (min-width: 1024px) {
+  .business-grid {
+    grid-template-areas:
+      "card1 card2 card3"
+      "card4 card5 card6"
+      "card7 card8 card8";
+    gap: var(--space-lg);
+  }
+  
+  /* Make the last card span 2 columns for better layout */
+  .business-card:nth-child(8) {
+    /* Card 8 already spans 2 columns in the grid-template-areas */
+  }
+}
+
+/* ===== LEARN MORE BUTTON STYLING ===== */
+.business-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.business-content .btn {
+  margin-top: auto; /* Push button to bottom */
+  margin-top: var(--space-md);
+}
+
+/* ===== IMAGE HOVER EFFECT (Desktop Only) ===== */
+.business-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.business-image img {
+  transition: transform 0.3s ease;
+}
+
+/* Only apply hover effect on devices that support hover */
+@media (hover: hover) and (min-width: 768px) {
+  .business-card:hover .business-image img {
+    transform: scale(1.1);
+  }
+}
+
+/* Disable hover on mobile */
+@media (hover: none) {
+  .business-image img {
+    transition: none;
+  }
+}
+
+/* ===== VISIT MESSAGE STYLING ===== */
+.visit-message-section {
+  padding: var(--space-lg) 0;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-light) 100%);
+}
+
+.visit-message-card {
+  background: var(--color-surface);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.visit-message-card p {
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
