@@ -167,11 +167,6 @@
       "card7 card8 card8";
     gap: var(--space-lg);
   }
-  
-  /* Make the last card span 2 columns for better layout */
-  .business-card:nth-child(8) {
-    /* Card 8 already spans 2 columns in the grid-template-areas */
-  }
 }
 
 /* ===== LEARN MORE BUTTON STYLING ===== */
